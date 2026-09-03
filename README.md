@@ -4,4 +4,4 @@
 This repository will contain all of our day to day content and things we discuss or do in class.
 
 
-# Claimed By Jayden B
+# Reclaimed by DJ ......
