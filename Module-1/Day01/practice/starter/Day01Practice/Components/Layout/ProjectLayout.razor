@@ -1,5 +1,8 @@
 @* TODO (Practice 3, Step 1): Add the directive that makes this component a layout. *@
+@inherits LayoutComponentBase
 @* TODO (Practice 3, Step 2): Add the directive that nests this layout inside MainLayout. *@
+@layout MainLayout
+
 
 <div class="project-container">
     <nav class="project-sidebar">
@@ -25,5 +28,6 @@
 
     <div class="project-content">
         @* TODO (Practice 3, Step 3): Render the page content here. *@
+        @Body
     </div>
 </div>
