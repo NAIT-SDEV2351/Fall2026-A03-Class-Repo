@@ -2,6 +2,7 @@
    - category (alphabetic characters only)
    - id (integer, minimum value 1)
    Route pattern: /products/{...}/{...} *@
+@page "/products/{Category:alpha}/{Id:int:min(1)}"
 
 <PageTitle>Product Detail</PageTitle>
 
@@ -12,7 +13,7 @@
         <h5 class="card-title">
             @* TODO (Practice 2, Step 2): Display the Category and Id parameter values below.
                Replace the ??? placeholders with the actual parameter properties. *@
-            ??? -- Product #???
+            @Category -- Product #@Id
         </h5>
         <p class="card-text">
             This page demonstrates <strong>multiple route parameters</strong> with constraints.
@@ -62,4 +63,9 @@
     @* TODO (Practice 2, Step 3): Add two [Parameter] properties:
        - public string Category (initialize to string.Empty)
        - public int Id *@
+    [Parameter]
+    public string Category { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
 }

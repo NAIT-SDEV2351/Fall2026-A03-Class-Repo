@@ -1,8 +1,9 @@
 @* TODO (Practice 3, Step 9): Add the @page directive for "/projects/{projectId:int}/team". *@
+@page "/projects/{ProjectId:int}/team"
 
 <PageTitle>Project Team</PageTitle>
 
-<h1>Project ??? -- Team Members</h1>
+<h1>Project @ProjectId -- Team Members</h1>
 
 <div class="row mt-3">
     <div class="col-md-4">
@@ -33,4 +34,6 @@
 
 @code {
     @* TODO (Practice 3, Step 10): Add a [Parameter] property for ProjectId (int). *@
+    [Parameter]
+    public int ProjectId { get; set; }
 }

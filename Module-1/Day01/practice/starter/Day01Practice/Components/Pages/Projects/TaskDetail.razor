@@ -1,4 +1,5 @@
 @* TODO (Practice 3, Step 11): Add the @page directive for "/projects/{projectId:int}/tasks/{taskId:int}". *@
+@page "/projects/{ProjectId:int}/tasks/{TaskId:int}"
 
 <PageTitle>Task Detail</PageTitle>
 
@@ -6,8 +7,8 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="projects/1/tasks">Project ???</a></li>
-        <li class="breadcrumb-item active">Task ???</li>
+        <li class="breadcrumb-item"><a href="projects/1/tasks">Project @ProjectId</a></li>
+        <li class="breadcrumb-item active">Task @TaskId</li>
     </ol>
 </nav>
 
@@ -16,9 +17,9 @@
         <h5 class="card-title">Task #???</h5>
         <dl class="row mb-0">
             <dt class="col-sm-3">Project ID</dt>
-            <dd class="col-sm-9">???</dd>
+            <dd class="col-sm-9">@ProjectId</dd>
             <dt class="col-sm-3">Task ID</dt>
-            <dd class="col-sm-9">???</dd>
+            <dd class="col-sm-9">@TaskId</dd>
             <dt class="col-sm-3">Status</dt>
             <dd class="col-sm-9"><span class="badge bg-warning text-dark">In Progress</span></dd>
             <dt class="col-sm-3">Assigned To</dt>
@@ -30,4 +31,9 @@
 @code {
     @* TODO (Practice 3, Step 12): Add a [Parameter] property for ProjectId (int). *@
     @* TODO (Practice 3, Step 13): Add a [Parameter] property for TaskId (int). *@
+    [Parameter]
+    public int ProjectId { get; set; }
+
+    [Parameter]
+    public int TaskId { get; set; }
 }
