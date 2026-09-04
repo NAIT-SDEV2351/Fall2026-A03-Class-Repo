@@ -1,10 +1,17 @@
 @* TODO (Practice 2, Step 1): Add the @page directive with two parameters:
    - category (alphabetic characters only)
    - id (integer, minimum value 1)
+<<<<<<< HEAD
    Route pattern: /products/{...}/{...} *@
 @* Route constraints reject non-matching URLs with a 404 before the page renders:
 :alpha = letters only, :int:min(1) = integer ≥ 1. The Test URLs table shows what passes/fails. *@
 
+=======
+   Route pattern: /products/{...}/{...} 
+   
+   notes: ":alpha" means alphabet only
+*@
+>>>>>>> f1a9b0b (add practice 1 and 2)
 @page "/products/{category:alpha}/{id:int:min(1)}"
 
 <PageTitle>Product Detail</PageTitle>
@@ -15,7 +22,14 @@
     <div class="card-body">
         <h5 class="card-title">
             @* TODO (Practice 2, Step 2): Display the Category and Id parameter values below.
+<<<<<<< HEAD
                Replace the ??? placeholders with the actual parameter properties. *@
+=======
+               Replace the ??? placeholders with the actual parameter properties. 
+               
+               note: blazor will try to find the parameters that match "Category" and "Id". so we had to make the parameters first before we put these in
+            *@
+>>>>>>> f1a9b0b (add practice 1 and 2)
             @Category -- Product #@Id
         </h5>
         <p class="card-text">
@@ -68,9 +82,24 @@
        - public string Category (initialize to string.Empty)
        - public int Id *@
 
+<<<<<<< HEAD
+=======
+    @* note: [Parameter] is a property attribute that tells Blazor “this property is filled in from outside the component.”
+       For route parameters, the outside source is the URL: when the route matches, Blazor copies each captured slot into the matching property *@
+
+>>>>>>> f1a9b0b (add practice 1 and 2)
     [Parameter]
     public string Category { get; set; } = string.Empty;
 
     [Parameter]
     public int Id { get; set; }
 }
+
+@* more notes:
+    Route constraints are chained with colons: {paramName:constraint1:constraint2}
+    The constraint for “alphabetic characters only” is :alpha
+    The constraint for “integer” is :int
+    The constraint for “minimum value” is :min(N
+
+    match the paramName with what is defined as a parameter
+*@
