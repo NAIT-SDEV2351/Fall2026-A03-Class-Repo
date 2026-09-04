@@ -2,7 +2,6 @@
    - category (alphabetic characters only)
    - id (integer, minimum value 1)
 <<<<<<< HEAD
-<<<<<<< HEAD
    Route pattern: /products/{...}/{...} *@
 @* Route constraints reject non-matching URLs with a 404 before the page renders:
 :alpha = letters only, :int:min(1) = integer ≥ 1. The Test URLs table shows what passes/fails. *@
@@ -14,9 +13,6 @@
 *@
 >>>>>>> f1a9b0b (add practice 1 and 2)
 @page "/products/{category:alpha}/{id:int:min(1)}"
-=======
-   Route pattern: /products/{...}/{...} *@
->>>>>>> origin/main
 
 <PageTitle>Product Detail</PageTitle>
 
@@ -26,7 +22,6 @@
     <div class="card-body">
         <h5 class="card-title">
             @* TODO (Practice 2, Step 2): Display the Category and Id parameter values below.
-<<<<<<< HEAD
 <<<<<<< HEAD
                Replace the ??? placeholders with the actual parameter properties. *@
 =======
@@ -40,13 +35,6 @@
         <p class="card-text">
             This page demonstrates <strong>multiple route parameters</strong> with constraints.
             @*The route <code>/products/{"{category:alpha}/{id:int:min(1)}"}</code> requires:*@ 
-=======
-               Replace the ??? placeholders with the actual parameter properties. *@
-            ??? -- Product #???
-        </h5>
-        <p class="card-text">
-            This page demonstrates <strong>multiple route parameters</strong> with constraints.
->>>>>>> origin/main
         </p>
 
         <h6 class="mt-3">Test these URLs after adding your route:</h6>
@@ -93,7 +81,6 @@
     @* TODO (Practice 2, Step 3): Add two [Parameter] properties:
        - public string Category (initialize to string.Empty)
        - public int Id *@
-<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -116,6 +103,3 @@
 
     match the paramName with what is defined as a parameter
 *@
-=======
-}
->>>>>>> origin/main
