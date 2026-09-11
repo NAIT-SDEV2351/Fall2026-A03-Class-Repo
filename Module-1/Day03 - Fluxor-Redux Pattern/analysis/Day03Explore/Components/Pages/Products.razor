@@ -1,0 +1,67 @@
+@page "/products"
+
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<p>Browse products and add them to your cart.</p>
+
+<div class="row">
+    @foreach (var product in availableProducts)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Price.ToString("C")</p>
+                    <button class="btn btn-primary" @onclick="() => AddToCart(product)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="alert alert-info mt-3">
+    <strong>Cart items (this component's private field):</strong> @cartItems.Count item(s)
+    <ul class="mb-0 mt-2">
+        @foreach (var item in cartItems)
+        {
+            <li>@item.Name (x@item.Quantity) &mdash; @((item.Price * item.Quantity).ToString("C"))</li>
+        }
+    </ul>
+</div>
+
+@code {
+    public record Product(int Id, string Name, decimal Price);
+
+    // THE state-loss problem in one field: cartItems lives ONLY in this component instance.
+    // Navigating to /cart destroys this Products component — and this list with it. The Cart
+    // page has its OWN separate (empty) list, which is why the cart looks empty once you're there.
+    private List<CartItem> cartItems = [];
+
+    private List<Product> availableProducts =
+    [
+        new Product(1, "Wireless Mouse", 29.99m),
+        new Product(2, "USB-C Hub", 49.99m),
+        new Product(3, "Mechanical Keyboard", 89.99m)
+    ];
+
+    private void AddToCart(Product product)
+    {
+        var existing = cartItems.FirstOrDefault(c => c.ProductId == product.Id);
+        if (existing is not null)
+        {
+            // CartItem is a record (immutable) — you can't reassign existing.Quantity. `with`
+            // copies the record changing only Quantity, then we swap the new copy into the list.
+            // (First `with` of the course — the same copy-don't-mutate idiom Fluxor state uses.)
+            var index = cartItems.IndexOf(existing);
+            cartItems[index] = existing with { Quantity = existing.Quantity + 1 };
+        }
+        else
+        {
+            cartItems.Add(new CartItem(product.Id, product.Name, product.Price, 1));
+        }
+    }
+}

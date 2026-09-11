@@ -1,0 +1,28 @@
+@page "/"
+
+<PageTitle>Day 3 Demo - State Challenges</PageTitle>
+
+<h1>Day 3 Demo: State Challenges</h1>
+
+<p class="lead">
+    This demo shows the <strong>state-loss problem</strong> in Blazor.
+    Each page stores cart data in its own private field. Navigate between
+    Products and Cart to see what happens.
+</p>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Try This</h5>
+        <ol>
+            <li>Go to <strong>Products</strong> and add a few items to the cart.</li>
+            <li>Note the cart count at the bottom of the Products page.</li>
+            <li>Click <strong>Shopping Cart</strong> in the sidebar.</li>
+            <li>Is the cart empty or populated?</li>
+            <li>Navigate back to <strong>Products</strong>. Are your items still there?</li>
+        </ol>
+        <p class="text-muted mb-0">
+            This is the state-loss problem that the Flux/Redux pattern solves.
+            Each component has independent state that does not survive navigation.
+        </p>
+    </div>
+</div>
