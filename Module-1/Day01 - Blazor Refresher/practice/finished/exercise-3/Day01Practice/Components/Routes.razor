@@ -1,0 +1,10 @@
+<Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+    @* No <NotFound> template here — on purpose. In a Blazor Web App, ASP.NET Core routing
+       resolves the URL on the SERVER before <Router> runs, so a URL that matches nothing never
+       reaches this component; a <NotFound> block would compile and silently never fire. The
+       fallback route (UseStatusCodePagesWithReExecute + a NotFound.razor page) is a Day 9 topic. *@
+</Router>
