@@ -69,6 +69,10 @@
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "App.razor",
@@ -78,8 +82,7 @@
               "RelativeToolTip": "Day04Demo\\Components\\App.razor",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T19:19:51.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:19:51.708Z"
             },
             {
               "$type": "Document",
@@ -91,8 +94,7 @@
               "RelativeToolTip": "Day04Demo\\.gitignore",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-09-07T19:18:21.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:18:21.269Z"
             },
             {
               "$type": "Document",
@@ -104,12 +106,7 @@
               "RelativeToolTip": "Day04Demo\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T19:18:09.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2026-09-07T19:18:09.254Z"
             },
             {
               "$type": "Document",
@@ -121,8 +118,7 @@
               "RelativeToolTip": "Day04Demo\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAA0AAAAAAAAAAAAMwBwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T19:05:50.281Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:50.281Z"
             },
             {
               "$type": "Document",
@@ -134,8 +130,7 @@
               "RelativeToolTip": "Day04Demo\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T19:05:48.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:48.079Z"
             },
             {
               "$type": "Document",
@@ -147,8 +142,7 @@
               "RelativeToolTip": "Day04Demo\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T19:05:46.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:46.807Z"
             },
             {
               "$type": "Document",
@@ -173,8 +167,7 @@
               "RelativeToolTip": "Day04Demo\\Features\\Counter\\Store\\CounterState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-07T19:05:33.134Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:33.134Z"
             },
             {
               "$type": "Document",
@@ -186,8 +179,7 @@
               "RelativeToolTip": "Day04Demo\\Features\\Counter\\Store\\CounterReducers.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-07T19:05:30.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:30.359Z"
             },
             {
               "$type": "Document",
@@ -199,8 +191,7 @@
               "RelativeToolTip": "Day04Demo\\Features\\Counter\\Store\\CounterFeature.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-07T19:05:28.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:28.183Z"
             },
             {
               "$type": "Document",
@@ -212,8 +203,7 @@
               "RelativeToolTip": "Day04Demo\\Features\\Counter\\Store\\CounterActions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-07T19:05:23.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-07T19:05:23.928Z"
             }
           ]
         }
