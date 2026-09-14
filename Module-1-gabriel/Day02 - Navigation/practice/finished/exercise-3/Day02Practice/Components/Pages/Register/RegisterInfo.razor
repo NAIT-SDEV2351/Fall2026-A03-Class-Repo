@@ -1,0 +1,32 @@
+@page "/register/info"
+@inject NavigationManager Navigation
+
+<PageTitle>Register - Personal Info</PageTitle>
+
+<h1>Registration: Personal Info</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Step 1 of 3: Personal Information</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Jane Smith" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="jane@example.com" />
+        </div>
+
+        <button class="btn btn-primary" @onclick="GoToPreferences">
+            Next: Preferences &rarr;
+        </button>
+    </div>
+</div>
+
+@code {
+    private void GoToPreferences()
+    {
+        Navigation.NavigateTo("/register/preferences");
+    }
+}

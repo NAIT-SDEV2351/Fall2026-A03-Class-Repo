@@ -1,0 +1,38 @@
+@* Two typed route parameters at the deepest level — {projectId:int}/{taskId:int} each
+   bind to a matching [Parameter] int below. *@
+@page "/projects/{projectId:int}/tasks/{taskId:int}"
+
+<PageTitle>Project @ProjectId - Task @TaskId</PageTitle>
+
+<h1>Task Detail</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="projects/@ProjectId/tasks">Project @ProjectId</a></li>
+        <li class="breadcrumb-item active">Task @TaskId</li>
+    </ol>
+</nav>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Task #@TaskId</h5>
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Project ID</dt>
+            <dd class="col-sm-9">@ProjectId</dd>
+            <dt class="col-sm-3">Task ID</dt>
+            <dd class="col-sm-9">@TaskId</dd>
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9"><span class="badge bg-warning text-dark">In Progress</span></dd>
+            <dt class="col-sm-3">Assigned To</dt>
+            <dd class="col-sm-9">Bob Smith</dd>
+        </dl>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int ProjectId { get; set; }
+
+    [Parameter]
+    public int TaskId { get; set; }
+}

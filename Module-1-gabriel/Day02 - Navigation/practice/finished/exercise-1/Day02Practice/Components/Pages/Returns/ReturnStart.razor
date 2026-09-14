@@ -1,0 +1,32 @@
+@* TODO (Practice 2, Step 1): Add the @page directive for "/returns/start/{orderId:int:min(1)}". *@
+@* TODO (Practice 2, Step 2): Inject NavigationManager. *@
+
+<PageTitle>Returns - Start</PageTitle>
+
+<h1>Product Return</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Start a Return for Order #???</h5>
+        @* TODO (Practice 2, Step 3a): Replace ??? above with the OrderId parameter value. *@
+
+        <p class="card-text">
+            We're sorry to hear you'd like to return an item from this order.
+            Click below to begin the return process.
+        </p>
+
+        <button class="btn btn-primary" @onclick="StartReturn">
+            Start Return Process &rarr;
+        </button>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 2, Step 3b): Add a [Parameter] property for OrderId (int). *@
+
+    private void StartReturn()
+    {
+        @* TODO (Practice 2, Step 3c): Use NavigateTo() to navigate to "/returns/reason/{OrderId}".
+           Hint: Navigation.NavigateTo($"/returns/reason/{OrderId}"); *@
+    }
+}

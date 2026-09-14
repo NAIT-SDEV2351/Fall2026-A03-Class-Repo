@@ -1,0 +1,61 @@
+@* Two route parameters, each with a CONSTRAINT enforced at the routing layer:
+   {category:alpha} accepts letters only; {id:int:min(1)} accepts a positive integer.
+   A URL that fails a constraint never reaches this component — the router returns 404
+   first — so the [Parameter] properties below can trust their types without re-validating. *@
+@page "/products/{category:alpha}/{id:int:min(1)}"
+
+<PageTitle>Product Detail</PageTitle>
+
+<h1>Product Detail</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">@Category -- Product #@Id</h5>
+        <p class="card-text">
+            This page demonstrates <strong>multiple route parameters</strong> with constraints.
+            The route <code>/products/{"{category:alpha}"}/{"{id:int:min(1)}"}</code> requires
+            an alphabetic category and a positive integer ID.
+        </p>
+
+        <h6 class="mt-3">Test these URLs:</h6>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Expected</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/products/electronics/42</code></td>
+                    <td>Match</td>
+                    <td>Alpha string + positive integer</td>
+                </tr>
+                <tr>
+                    <td><code>/products/home-garden/42</code></td>
+                    <td>404</td>
+                    <td>Hyphen is not alphabetic</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/0</code></td>
+                    <td>404</td>
+                    <td>Fails min(1) constraint</td>
+                </tr>
+                <tr>
+                    <td><code>/products/123/42</code></td>
+                    <td>404</td>
+                    <td>Digits are not alpha</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    // [Parameter] binds a route segment to a property BY NAME — the property must match the
+    // {placeholder} in the @page route (Category↔{category}, Id↔{id}), case-insensitive. Id is
+    // typed int because the :int constraint guarantees the segment parses; no manual conversion.
+    [Parameter] public string Category { get; set; } = string.Empty;
+    [Parameter] public int Id { get; set; }
+}

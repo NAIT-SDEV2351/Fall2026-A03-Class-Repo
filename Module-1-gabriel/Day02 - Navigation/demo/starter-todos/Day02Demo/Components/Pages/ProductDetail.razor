@@ -1,0 +1,59 @@
+@* TODO 3: Add the @page directive with two parameters and constraints.
+   Route pattern: /products/{category:alpha}/{id:int:min(1)}
+   Hint: @page "/products/{category:alpha}/{id:int:min(1)}" *@
+
+<PageTitle>Product Detail</PageTitle>
+
+<h1>Product Detail</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Product Page</h5>
+        @* TODO 13: After adding the [Parameter] properties below, replace the line above with:
+           <h5 class="card-title">@Category -- Product #@Id</h5> *@
+        <p class="card-text">
+            This page demonstrates <strong>multiple route parameters</strong> with constraints.
+            The route <code>/products/{"{category:alpha}"}/{"{id:int:min(1)}"}</code> requires
+            an alphabetic category and a positive integer ID.
+        </p>
+
+        <h6 class="mt-3">Test these URLs:</h6>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Expected</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/products/electronics/42</code></td>
+                    <td>Match</td>
+                    <td>Alpha string + positive integer</td>
+                </tr>
+                <tr>
+                    <td><code>/products/home-garden/42</code></td>
+                    <td>404</td>
+                    <td>Hyphen is not alphabetic</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/0</code></td>
+                    <td>404</td>
+                    <td>Fails min(1) constraint</td>
+                </tr>
+                <tr>
+                    <td><code>/products/123/42</code></td>
+                    <td>404</td>
+                    <td>Digits are not alpha</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    // TODO 4: Add two [Parameter] properties:
+    //   [Parameter] public string Category { get; set; } = string.Empty;
+    //   [Parameter] public int Id { get; set; }
+}

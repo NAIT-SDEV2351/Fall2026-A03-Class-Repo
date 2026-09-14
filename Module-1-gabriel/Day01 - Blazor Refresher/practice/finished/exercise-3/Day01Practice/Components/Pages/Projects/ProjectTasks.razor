@@ -1,0 +1,40 @@
+@* {projectId:int} is a typed route parameter — the int in the URL binds to [Parameter] ProjectId below. *@
+@page "/projects/{projectId:int}/tasks"
+
+<PageTitle>Project @ProjectId - Tasks</PageTitle>
+
+<h1>Project @ProjectId -- Tasks</h1>
+
+<p>Task list for project <strong>@ProjectId</strong>.</p>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Set up project repository</td>
+            <td><span class="badge bg-success">Done</span></td>
+            <td><a href="projects/@ProjectId/tasks/1">View</a></td>
+        </tr>
+        <tr>
+            <td>Design database schema</td>
+            <td><span class="badge bg-warning text-dark">In Progress</span></td>
+            <td><a href="projects/@ProjectId/tasks/2">View</a></td>
+        </tr>
+        <tr>
+            <td>Implement authentication</td>
+            <td><span class="badge bg-secondary">Pending</span></td>
+            <td><a href="projects/@ProjectId/tasks/3">View</a></td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public int ProjectId { get; set; }
+}

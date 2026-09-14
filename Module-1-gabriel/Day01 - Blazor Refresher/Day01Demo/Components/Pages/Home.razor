@@ -1,0 +1,23 @@
+@page "/"
+
+<PageTitle>Day 1 Demonstration - Nested Routes</PageTitle>
+
+<h1>Day 1 Demonstration: Nested Routes</h1>
+
+<p class="lead">Instructor walkthrough &mdash; building the Admin section with a nested layout chain.</p>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">What this demonstrates</h5>
+        <ul>
+            <li>Making a component a <strong>layout</strong> with <code>@@inherits LayoutComponentBase</code></li>
+            <li>Nesting one layout inside another with <code>@@layout</code></li>
+            <li>Applying a layout to a whole folder via <code>_Imports.razor</code></li>
+            <li>Wiring pages into the chain with <code>@@page</code> directives</li>
+        </ul>
+        <p class="text-muted mt-2">
+            The render chain is <strong>MainLayout &rarr; AdminLayout &rarr; page</strong>.
+            All seven directives are in place &mdash; compare against <code>demo/starter/</code> to see what was typed live.
+        </p>
+    </div>
+</div>

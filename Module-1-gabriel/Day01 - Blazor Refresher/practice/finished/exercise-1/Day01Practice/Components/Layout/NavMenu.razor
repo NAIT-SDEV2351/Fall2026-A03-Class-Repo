@@ -1,0 +1,63 @@
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Day 1 Practice</a>
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    </div>
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Reports</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="reports/overview">
+                Overview
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="reports/sales">
+                Sales
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="reports/inventory">
+                Inventory
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Products</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="products/electronics/42">
+                Electronics #42
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Projects</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="projects/1/tasks">
+                Project 1 Tasks
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="projects/1/settings">
+                Project 1 Settings
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="projects/1/team">
+                Project 1 Team
+            </NavLink>
+        </div>
+    </nav>
+</div>

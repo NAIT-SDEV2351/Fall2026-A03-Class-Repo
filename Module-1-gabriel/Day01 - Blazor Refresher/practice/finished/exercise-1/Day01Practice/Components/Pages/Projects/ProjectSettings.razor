@@ -1,0 +1,26 @@
+@* TODO (Practice 3, Step 7): Add the @page directive for "/projects/{projectId:int}/settings". *@
+
+<PageTitle>Project Settings</PageTitle>
+
+<h1>Project ??? -- Settings</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Project Configuration</h5>
+        <div class="mb-3">
+            <label class="form-label">Project Name</label>
+            <input type="text" class="form-control" value="Project ???" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Visibility</label>
+            <select class="form-select" disabled>
+                <option selected>Private</option>
+                <option>Public</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 3, Step 8): Add a [Parameter] property for ProjectId (int). *@
+}

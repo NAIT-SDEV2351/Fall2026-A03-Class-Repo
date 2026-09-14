@@ -1,0 +1,36 @@
+@* TODO (Practice 1, Step 1): Add the directive that makes this component a layout. *@
+<<<<<<< HEAD
+@inherits LayoutComponentBase
+=======
+@inherits MainLayout
+>>>>>>> f1a9b0b (add practice 1 and 2)
+@* TODO (Practice 1, Step 2): Add the directive that nests this layout inside MainLayout. *@
+@layout MainLayout
+
+<div class="reports-container">
+    <nav class="reports-sidebar">
+        <h5 class="reports-sidebar-title">Reports</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="reports/overview" Match="NavLinkMatch.All">
+                    Overview
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="reports/sales">
+                    Sales
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="reports/inventory">
+                    Inventory
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="reports-content">
+        @* TODO (Practice 1, Step 3): Render the page content here. *@
+        @Body
+    </div>
+</div>

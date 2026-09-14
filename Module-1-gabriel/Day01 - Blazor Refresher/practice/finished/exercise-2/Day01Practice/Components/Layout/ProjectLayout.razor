@@ -1,0 +1,29 @@
+@* TODO (Practice 3, Step 1): Add the directive that makes this component a layout. *@
+@* TODO (Practice 3, Step 2): Add the directive that nests this layout inside MainLayout. *@
+
+<div class="project-container">
+    <nav class="project-sidebar">
+        <h5 class="project-sidebar-title">Project Management</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="projects/1/tasks">
+                    Tasks
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="projects/1/settings">
+                    Settings
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="projects/1/team">
+                    Team Members
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="project-content">
+        @* TODO (Practice 3, Step 3): Render the page content here. *@
+    </div>
+</div>

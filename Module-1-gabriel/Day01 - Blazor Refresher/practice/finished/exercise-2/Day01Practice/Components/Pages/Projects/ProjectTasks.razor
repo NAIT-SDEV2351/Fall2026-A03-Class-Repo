@@ -1,0 +1,38 @@
+@* TODO (Practice 3, Step 5): Add the @page directive for "/projects/{projectId:int}/tasks". *@
+
+<PageTitle>Project Tasks</PageTitle>
+
+<h1>Project ??? -- Tasks</h1>
+
+<p>Task list for project <strong>???</strong>.</p>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Set up project repository</td>
+            <td><span class="badge bg-success">Done</span></td>
+            <td><a href="projects/1/tasks/1">View</a></td>
+        </tr>
+        <tr>
+            <td>Design database schema</td>
+            <td><span class="badge bg-warning text-dark">In Progress</span></td>
+            <td><a href="projects/1/tasks/2">View</a></td>
+        </tr>
+        <tr>
+            <td>Implement authentication</td>
+            <td><span class="badge bg-secondary">Pending</span></td>
+            <td><a href="projects/1/tasks/3">View</a></td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+    @* TODO (Practice 3, Step 6): Add a [Parameter] property for ProjectId (int). *@
+}

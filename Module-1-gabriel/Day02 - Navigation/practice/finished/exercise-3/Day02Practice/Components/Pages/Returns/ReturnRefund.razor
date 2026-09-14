@@ -1,0 +1,25 @@
+@page "/returns/refund/{orderId:int:min(1)}"
+
+<PageTitle>Returns - Refund</PageTitle>
+
+<h1>Refund Requested</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-info">
+            <h5 class="alert-heading">Refund Path</h5>
+            Your refund for Order #@OrderId will be processed within 5-7 business days.
+        </div>
+
+        <p><strong>Order ID:</strong> @OrderId</p>
+        <p><strong>Return type:</strong> Refund</p>
+        <p class="text-muted">
+            This page demonstrates <strong>conditional navigation</strong> -- you arrived here
+            because "Refund" was selected on the previous page.
+        </p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int OrderId { get; set; }
+}

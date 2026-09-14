@@ -1,0 +1,21 @@
+@* The app-wide shell. @inherits LayoutComponentBase makes this a layout; every page
+   renders through here unless a more specific layout (like AdminLayout) wraps it first. *@
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @* @Body renders the routed page — or a nested layout (AdminLayout) that
+               then renders the page through its own @Body. *@
+            @Body
+        </article>
+    </main>
+</div>

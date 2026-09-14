@@ -1,0 +1,29 @@
+@* TODO (Practice 2, Step 8): Add the @page directive for "/returns/refund/{orderId:int:min(1)}". *@
+
+<PageTitle>Returns - Refund</PageTitle>
+
+<h1>Refund Requested</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-info">
+            <h5 class="alert-heading">Refund Path</h5>
+            Your refund for Order #??? will be processed within 5-7 business days.
+            @* TODO (Practice 2, Step 9a): Replace ??? above with the OrderId parameter value. *@
+        </div>
+
+        <p>
+            <strong>Order ID:</strong> ???
+            @* TODO (Practice 2, Step 9c): Replace ??? above with the OrderId parameter value. *@
+        </p>
+        <p><strong>Return type:</strong> Refund</p>
+        <p class="text-muted">
+            This page demonstrates <strong>conditional navigation</strong> -- you arrived here
+            because "Refund" was selected on the previous page.
+        </p>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 2, Step 9b): Add a [Parameter] property for OrderId (int). *@
+}

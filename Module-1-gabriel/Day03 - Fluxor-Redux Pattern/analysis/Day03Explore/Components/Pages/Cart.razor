@@ -1,0 +1,70 @@
+@page "/cart"
+
+<PageTitle>Shopping Cart</PageTitle>
+
+<h1>Shopping Cart</h1>
+
+@if (cartItems.Count == 0)
+{
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Your cart is empty</h4>
+        <p>
+            You added items on the Products page, but this is a <strong>different component</strong>
+            with its own <code>private List&lt;CartItem&gt;</code> field.
+        </p>
+        <hr />
+        <p class="mb-0">
+            <strong>This is the state-loss problem.</strong> Each component has
+            independent state. Navigating here created a new Cart component with
+            an empty list. The Products component (and its cart data) was destroyed.
+        </p>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Why did this happen?</h5>
+            <ol>
+                <li>The Products page stored cart items in a <code>private List&lt;CartItem&gt;</code> field.</li>
+                <li>When you navigated to this Cart page, the Products component was <strong>destroyed</strong>.</li>
+                <li>This Cart component has its own <code>private List&lt;CartItem&gt;</code> &mdash; a completely separate, empty list.</li>
+                <li>If you navigate back to Products, it will also be empty &mdash; a new instance with default values.</li>
+            </ol>
+            <p class="text-muted mb-0">
+                <strong>The solution:</strong> Move cart state into a centralized store (Flux/Redux pattern)
+                that lives outside any component and survives navigation.
+            </p>
+        </div>
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in cartItems)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Quantity</td>
+                    <td>@((item.Price * item.Quantity).ToString("C"))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    // A DIFFERENT instance's list — NOT the Products page's cartItems. It's a brand-new empty
+    // list built when this Cart component was constructed on navigation. That emptiness IS the
+    // demo: component-local state doesn't survive navigation. Fluxor (Day 4+) fixes it with a
+    // store that lives OUTSIDE any component and persists across page changes.
+    private List<CartItem> cartItems = [];
+}

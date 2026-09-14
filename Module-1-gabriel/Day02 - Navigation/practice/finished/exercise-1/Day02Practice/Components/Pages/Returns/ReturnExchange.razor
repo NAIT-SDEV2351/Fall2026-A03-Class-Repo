@@ -1,0 +1,29 @@
+@* TODO (Practice 2, Step 10): Add the @page directive for "/returns/exchange/{orderId:int:min(1)}". *@
+
+<PageTitle>Returns - Exchange</PageTitle>
+
+<h1>Exchange Requested</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-success">
+            <h5 class="alert-heading">Exchange Path</h5>
+            Your exchange for Order #??? has been initiated. A replacement will be shipped shortly.
+            @* TODO (Practice 2, Step 11a): Replace ??? above with the OrderId parameter value. *@
+        </div>
+
+        <p>
+            <strong>Order ID:</strong> ???
+            @* TODO (Practice 2, Step 11c): Replace ??? above with the OrderId parameter value. *@
+        </p>
+        <p><strong>Return type:</strong> Exchange</p>
+        <p class="text-muted">
+            This page demonstrates <strong>conditional navigation</strong> -- you arrived here
+            because "Exchange" was selected on the previous page.
+        </p>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 2, Step 11b): Add a [Parameter] property for OrderId (int). *@
+}

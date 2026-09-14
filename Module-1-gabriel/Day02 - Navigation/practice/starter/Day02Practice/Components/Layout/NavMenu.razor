@@ -1,0 +1,43 @@
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Day 2 Practice</a>
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    </div>
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Registration</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="register/info">
+                Start Registration
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Returns</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="returns/start/42">
+                Return Order #42
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Survey</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="survey/1">
+                Take Survey
+            </NavLink>
+        </div>
+    </nav>
+</div>

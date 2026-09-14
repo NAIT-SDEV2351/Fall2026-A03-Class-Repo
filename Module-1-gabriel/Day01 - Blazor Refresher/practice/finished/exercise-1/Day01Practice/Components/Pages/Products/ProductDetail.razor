@@ -1,0 +1,65 @@
+@* TODO (Practice 2, Step 1): Add the @page directive with two parameters:
+   - category (alphabetic characters only)
+   - id (integer, minimum value 1)
+   Route pattern: /products/{...}/{...} *@
+
+<PageTitle>Product Detail</PageTitle>
+
+<h1>Product Detail</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">
+            @* TODO (Practice 2, Step 2): Display the Category and Id parameter values below.
+               Replace the ??? placeholders with the actual parameter properties. *@
+            ??? -- Product #???
+        </h5>
+        <p class="card-text">
+            This page demonstrates <strong>multiple route parameters</strong> with constraints.
+        </p>
+
+        <h6 class="mt-3">Test these URLs after adding your route:</h6>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Expected</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/products/electronics/42</code></td>
+                    <td>Match</td>
+                    <td>Alpha string + positive integer</td>
+                </tr>
+                <tr>
+                    <td><code>/products/home-garden/42</code></td>
+                    <td>404</td>
+                    <td>Hyphen is not alphabetic</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/0</code></td>
+                    <td>404</td>
+                    <td>Fails min(1) constraint</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/-5</code></td>
+                    <td>404</td>
+                    <td>Fails min(1) constraint</td>
+                </tr>
+                <tr>
+                    <td><code>/products/123/42</code></td>
+                    <td>404</td>
+                    <td>Digits are not alpha</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 2, Step 3): Add two [Parameter] properties:
+       - public string Category (initialize to string.Empty)
+       - public int Id *@
+}

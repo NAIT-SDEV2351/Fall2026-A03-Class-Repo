@@ -1,0 +1,26 @@
+@page "/survey/complete"
+@inject NavigationManager Navigation
+
+<PageTitle>Survey Complete</PageTitle>
+
+<h1>Survey Complete</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-success">
+            <h5 class="alert-heading">Thank You!</h5>
+            Your survey responses have been recorded.
+        </div>
+
+        <button class="btn btn-outline-primary" @onclick="Retake">
+            Retake Survey
+        </button>
+    </div>
+</div>
+
+@code {
+    private void Retake()
+    {
+        Navigation.NavigateTo("/survey/1");
+    }
+}

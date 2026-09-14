@@ -1,0 +1,49 @@
+@page "/register/preferences"
+@* TODO (Practice 1, Step 3): Inject NavigationManager.
+   Hint: @inject NavigationManager Navigation *@
+
+<PageTitle>Register - Preferences</PageTitle>
+
+<h1>Registration: Preferences</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Step 2 of 3: Your Preferences</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Preferred Language</label>
+            <select class="form-select">
+                <option>English</option>
+                <option>French</option>
+                <option>Spanish</option>
+            </select>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="newsletter" />
+            <label class="form-check-label" for="newsletter">Subscribe to newsletter</label>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" @onclick="GoBack">
+                &larr; Back
+            </button>
+            <button class="btn btn-primary" @onclick="GoToComplete">
+                Next: Complete &rarr;
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void GoBack()
+    {
+        @* TODO (Practice 1, Step 4): Use NavigateTo() to go back to "/register/info" with replace: true.
+           Hint: Navigation.NavigateTo("/register/info", replace: true);
+           Why replace: true? So the browser's back button skips this page after going back. *@
+    }
+
+    private void GoToComplete()
+    {
+        @* TODO (Practice 1, Step 5): Use NavigateTo() to navigate to "/register/complete". *@
+    }
+}

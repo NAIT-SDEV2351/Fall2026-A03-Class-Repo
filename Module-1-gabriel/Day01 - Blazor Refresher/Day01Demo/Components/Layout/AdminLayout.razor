@@ -1,0 +1,35 @@
+@* This component is a LAYOUT, not a page. @inherits LayoutComponentBase gives it the
+   @Body slot used below. @layout MainLayout nests it INSIDE MainLayout, so the full
+   render chain is MainLayout → AdminLayout → page — two layers of chrome around every
+   Admin page. *@
+@inherits LayoutComponentBase
+@layout MainLayout
+
+<div class="admin-container">
+    <nav class="admin-sidebar">
+        <h5 class="admin-sidebar-title">Admin Panel</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="admin/dashboard" Match="NavLinkMatch.All">
+                    Dashboard
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="admin/users">
+                    Users
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="admin/settings">
+                    Settings
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="admin-content">
+        @* The routed Admin page renders here, wrapped by this sidebar — and this whole
+           layout in turn renders inside MainLayout's @Body. *@
+        @Body
+    </div>
+</div>

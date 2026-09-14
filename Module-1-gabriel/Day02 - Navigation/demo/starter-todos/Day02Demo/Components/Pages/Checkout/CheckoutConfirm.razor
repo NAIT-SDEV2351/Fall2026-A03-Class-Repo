@@ -1,0 +1,43 @@
+@page "/checkout/confirm"
+@* TODO 10: Inject NavigationManager *@
+
+<PageTitle>Checkout - Confirmation</PageTitle>
+
+<h1>Checkout: Confirmation</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Step 3 of 3: Review Your Order</h5>
+
+        <div class="alert alert-success">
+            Order ready for submission. In a real application, this page would display
+            the shipping and payment details collected in steps 1 and 2.
+        </div>
+
+        <p>
+            <strong>Key takeaway:</strong> Each step used <code>NavigateTo()</code> to advance
+            the user through the wizard. The code decided where to go next -- not a link click.
+        </p>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" @onclick="GoBack">
+                &larr; Back to Payment
+            </button>
+            <button class="btn btn-success" @onclick="StartOver">
+                Start Over
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void GoBack()
+    {
+        // TODO 11: Use NavigateTo() to go back to "/checkout/payment" with replace: true
+    }
+
+    private void StartOver()
+    {
+        // TODO 12: Use NavigateTo() to navigate to "/checkout/shipping"
+    }
+}

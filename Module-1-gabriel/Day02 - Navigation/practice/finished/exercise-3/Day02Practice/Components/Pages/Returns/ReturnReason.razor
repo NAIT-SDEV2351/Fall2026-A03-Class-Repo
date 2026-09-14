@@ -1,0 +1,39 @@
+@page "/returns/reason/{orderId:int:min(1)}"
+@inject NavigationManager Navigation
+
+<PageTitle>Returns - Select Reason</PageTitle>
+
+<h1>Return Reason</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Why are you returning Order #@OrderId?</h5>
+
+        <p class="card-text">Select the reason for your return:</p>
+
+        <div class="d-grid gap-2 col-6">
+            <button class="btn btn-outline-primary" @onclick="ChooseRefund">
+                I want a refund
+            </button>
+            <button class="btn btn-outline-secondary" @onclick="ChooseExchange">
+                I want an exchange
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int OrderId { get; set; }
+
+    // Branching navigation: the two buttons go to DIFFERENT pages, each carrying the same
+    // OrderId forward. Which path the user takes — refund vs exchange — is decided in code.
+    private void ChooseRefund()
+    {
+        Navigation.NavigateTo($"/returns/refund/{OrderId}");
+    }
+
+    private void ChooseExchange()
+    {
+        Navigation.NavigateTo($"/returns/exchange/{OrderId}");
+    }
+}

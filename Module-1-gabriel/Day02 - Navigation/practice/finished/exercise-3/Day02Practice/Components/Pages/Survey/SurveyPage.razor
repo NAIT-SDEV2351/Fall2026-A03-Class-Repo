@@ -1,0 +1,81 @@
+@* {page:int:range(1,3)} — a RANGE constraint: the segment must be an integer from 1 to 3,
+   so /survey/4 returns 404. ONE component serves all three questions; it reads Page from the
+   route and navigates to ITSELF with Page±1 (below) to step between them. *@
+@page "/survey/{page:int:range(1,3)}"
+@inject NavigationManager Navigation
+
+<PageTitle>Survey - Page @Page</PageTitle>
+
+<h1>Survey</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Question @Page of 3</h5>
+
+        <div class="mb-3">
+            <label class="form-label">
+                @if (Page == 1)
+                {
+                    <text>How satisfied are you with the course?</text>
+                }
+                else if (Page == 2)
+                {
+                    <text>How would you rate the instructor?</text>
+                }
+                else
+                {
+                    <text>Would you recommend this course to others?</text>
+                }
+            </label>
+            <select class="form-select">
+                <option>Very Satisfied</option>
+                <option>Satisfied</option>
+                <option>Neutral</option>
+                <option>Dissatisfied</option>
+            </select>
+        </div>
+
+        <div class="d-flex gap-2">
+            @if (Page > 1)
+            {
+                <button class="btn btn-outline-secondary" @onclick="GoBack">
+                    &larr; Back
+                </button>
+            }
+
+            @if (Page < 3)
+            {
+                <button class="btn btn-primary" @onclick="GoNext">
+                    Next &rarr;
+                </button>
+            }
+            else
+            {
+                <button class="btn btn-success" @onclick="Finish">
+                    Finish Survey
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Page { get; set; }
+
+    private void GoNext()
+    {
+        Navigation.NavigateTo($"/survey/{Page + 1}");
+    }
+
+    private void GoBack()
+    {
+        // replace: true prevents a browser-back loop: user goes Back, lands here,
+        // clicks Back again, and would otherwise loop forever between adjacent pages.
+        Navigation.NavigateTo($"/survey/{Page - 1}", replace: true);
+    }
+
+    private void Finish()
+    {
+        Navigation.NavigateTo("/survey/complete");
+    }
+}

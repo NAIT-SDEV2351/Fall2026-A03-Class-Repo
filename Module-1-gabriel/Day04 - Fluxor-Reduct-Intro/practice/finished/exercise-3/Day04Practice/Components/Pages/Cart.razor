@@ -1,0 +1,76 @@
+@page "/cart"
+@inherits FluxorComponent
+@inject IState<Day04Practice.Features.Cart.Store.CartState> CartState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Practice 3: Cart</PageTitle>
+
+<h1>Practice 3: Shopping Cart</h1>
+
+@if (CartState.Value.Items.Count == 0)
+{
+    <div class="alert alert-info">
+        <h5 class="alert-heading">Cart is empty</h5>
+        <p>Go to the <a href="/products">Products page</a>, add some items, then come back here.</p>
+        <p class="mb-0"><strong>Key test:</strong> Does the cart persist when you navigate between pages? (It should -- this is the Day 3 problem solved with Fluxor!)</p>
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in CartState.Value.Items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>
+                        <input type="number" class="form-control form-control-sm" style="width: 80px;"
+                               value="@item.Quantity"
+                               @onchange="e => UpdateQuantity(item.ProductId, e)" />
+                    </td>
+                    <td>@((item.Price * item.Quantity).ToString("C"))</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                                @onclick="() => RemoveItem(item.ProductId)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                <td><strong>@CartState.Value.TotalPrice.ToString("C")</strong></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+}
+
+@code {
+    private void RemoveItem(int productId)
+    {
+        Dispatcher.Dispatch(
+            new Day04Practice.Features.Cart.Store.RemoveFromCartAction(productId));
+    }
+
+    private void UpdateQuantity(int productId, ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out var newQuantity) && newQuantity > 0)
+        {
+            Dispatcher.Dispatch(
+                new Day04Practice.Features.Cart.Store.UpdateQuantityAction(productId, newQuantity));
+        }
+    }
+}

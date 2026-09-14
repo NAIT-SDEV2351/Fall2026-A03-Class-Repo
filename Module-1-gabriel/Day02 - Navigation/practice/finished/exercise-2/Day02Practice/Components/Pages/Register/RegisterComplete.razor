@@ -1,0 +1,27 @@
+@page "/register/complete"
+@inject NavigationManager Navigation
+
+<PageTitle>Register - Complete</PageTitle>
+
+<h1>Registration: Complete</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Step 3 of 3: Registration Complete</h5>
+
+        <div class="alert alert-success">
+            Your account has been created successfully!
+        </div>
+
+        <button class="btn btn-outline-primary" @onclick="StartOver">
+            Register Another Account
+        </button>
+    </div>
+</div>
+
+@code {
+    private void StartOver()
+    {
+        Navigation.NavigateTo("/register/info");
+    }
+}

@@ -1,0 +1,25 @@
+@page "/returns/exchange/{orderId:int:min(1)}"
+
+<PageTitle>Returns - Exchange</PageTitle>
+
+<h1>Exchange Requested</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-success">
+            <h5 class="alert-heading">Exchange Path</h5>
+            Your exchange for Order #@OrderId has been initiated. A replacement will be shipped shortly.
+        </div>
+
+        <p><strong>Order ID:</strong> @OrderId</p>
+        <p><strong>Return type:</strong> Exchange</p>
+        <p class="text-muted">
+            This page demonstrates <strong>conditional navigation</strong> -- you arrived here
+            because "Exchange" was selected on the previous page.
+        </p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int OrderId { get; set; }
+}

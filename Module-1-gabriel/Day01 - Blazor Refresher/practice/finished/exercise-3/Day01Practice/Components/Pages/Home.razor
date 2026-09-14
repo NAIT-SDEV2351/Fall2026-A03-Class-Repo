@@ -1,0 +1,58 @@
+@page "/"
+
+<PageTitle>Day 1 Practice - Routing</PageTitle>
+
+<h1>Day 1 Practice: Routing</h1>
+
+<p class="lead">Reference solution with all three practices completed.</p>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Completed Practices</h5>
+        <ol>
+            <li><strong>Reports Section</strong> -- Nested layout chain (<code>/reports/overview</code>)</li>
+            <li><strong>Product Catalog</strong> -- Dual constraints (<code>/products/electronics/42</code>)</li>
+            <li><strong>Project Management</strong> -- Multi-level routing (<code>/projects/1/tasks</code>)</li>
+        </ol>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Test Routes</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Expected</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/reports/overview</code></td>
+                    <td><span class="text-success">Match</span> -- Reports layout chain</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/42</code></td>
+                    <td><span class="text-success">Match</span> -- Alpha + positive int</td>
+                </tr>
+                <tr>
+                    <td><code>/products/home-garden/42</code></td>
+                    <td><span class="text-danger">404</span> -- Hyphen fails :alpha</td>
+                </tr>
+                <tr>
+                    <td><code>/products/electronics/0</code></td>
+                    <td><span class="text-danger">404</span> -- Fails min(1)</td>
+                </tr>
+                <tr>
+                    <td><code>/projects/1/tasks</code></td>
+                    <td><span class="text-success">Match</span> -- Project layout chain</td>
+                </tr>
+                <tr>
+                    <td><code>/projects/1/tasks/5</code></td>
+                    <td><span class="text-success">Match</span> -- Two parameters</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

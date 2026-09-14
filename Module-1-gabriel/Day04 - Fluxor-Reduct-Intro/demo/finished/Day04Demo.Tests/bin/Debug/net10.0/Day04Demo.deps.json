@@ -1,0 +1,78 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Day04Demo/1.0.0": {
+        "dependencies": {
+          "Fluxor.Blazor.Web": "6.0.0",
+          "Fluxor.Blazor.Web.ReduxDevTools": "6.0.0"
+        },
+        "runtime": {
+          "Day04Demo.dll": {}
+        }
+      },
+      "Fluxor/6.0.0": {
+        "runtime": {
+          "lib/net8.0/Fluxor.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "Fluxor.Blazor.Web/6.0.0": {
+        "dependencies": {
+          "Fluxor": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Fluxor.Blazor.Web.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "Fluxor.Blazor.Web.ReduxDevTools/6.0.0": {
+        "dependencies": {
+          "Fluxor.Blazor.Web": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Day04Demo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Fluxor/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Z8q9wOdRmjyxf4BDRkZTggreZPMXbUgD54oXK4qKoLnSuYbVqX/Lxy39Ieok33hxahBd3qcyH1ZF+Qvw0eHCg==",
+      "path": "fluxor/6.0.0",
+      "hashPath": "fluxor.6.0.0.nupkg.sha512"
+    },
+    "Fluxor.Blazor.Web/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6wxUROUcLxOBdBA1f9Ei2cqw+UglBS8fHgP8QjgIBfvlxc7HIYakp3jXLPHUvX9glpE7+ZNYApBPzy48SgTEEA==",
+      "path": "fluxor.blazor.web/6.0.0",
+      "hashPath": "fluxor.blazor.web.6.0.0.nupkg.sha512"
+    },
+    "Fluxor.Blazor.Web.ReduxDevTools/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V9N/4EV+gLbGAgvU2/F27+jsVdji9SZ7n7ebbAzOgzv39eykRYXusLRAFFZqIffAvFyDvfUr6oIjO+57w2BUvg==",
+      "path": "fluxor.blazor.web.reduxdevtools/6.0.0",
+      "hashPath": "fluxor.blazor.web.reduxdevtools.6.0.0.nupkg.sha512"
+    }
+  }
+}

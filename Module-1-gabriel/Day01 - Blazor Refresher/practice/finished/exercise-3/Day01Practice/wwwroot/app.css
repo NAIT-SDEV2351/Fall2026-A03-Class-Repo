@@ -1,0 +1,133 @@
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1:focus {
+    outline: none;
+}
+
+a, .btn-link {
+    color: #0071c1;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,...) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+/* ============================================================
+   Reports Layout Styles (Practice 1)
+   ============================================================ */
+.reports-container {
+    display: flex;
+    min-height: calc(100vh - 3.5rem);
+}
+
+.reports-sidebar {
+    width: 220px;
+    background-color: #e9f3ec;
+    border-right: 1px solid #c4ddca;
+    padding: 1rem 0;
+    flex-shrink: 0;
+}
+
+.reports-sidebar-title {
+    padding: 0 1rem 0.5rem;
+    color: #2f6b46;
+    border-bottom: 1px solid #c4ddca;
+    margin-bottom: 0.5rem;
+}
+
+.reports-sidebar .nav-link {
+    color: #2f6b46;
+    padding: 0.5rem 1rem;
+}
+
+.reports-sidebar .nav-link:hover {
+    background-color: #d3e7da;
+}
+
+.reports-sidebar .nav-link.active {
+    background-color: #2f6b46;
+    color: white;
+    font-weight: 600;
+}
+
+.reports-content {
+    flex: 1;
+    padding: 1rem 1.5rem;
+}
+
+/* ============================================================
+   Project Layout Styles (Practice 3)
+   ============================================================ */
+.project-container {
+    display: flex;
+    min-height: calc(100vh - 3.5rem);
+}
+
+.project-sidebar {
+    width: 220px;
+    background-color: #fdf2e9;
+    border-right: 1px solid #e0cfc0;
+    padding: 1rem 0;
+    flex-shrink: 0;
+}
+
+.project-sidebar-title {
+    padding: 0 1rem 0.5rem;
+    color: #8b5e3c;
+    border-bottom: 1px solid #e0cfc0;
+    margin-bottom: 0.5rem;
+}
+
+.project-sidebar .nav-link {
+    color: #8b5e3c;
+    padding: 0.5rem 1rem;
+}
+
+.project-sidebar .nav-link:hover {
+    background-color: #f5e1ce;
+}
+
+.project-sidebar .nav-link.active {
+    background-color: #8b5e3c;
+    color: white;
+    font-weight: 600;
+}
+
+.project-content {
+    flex: 1;
+    padding: 1rem 1.5rem;
+}

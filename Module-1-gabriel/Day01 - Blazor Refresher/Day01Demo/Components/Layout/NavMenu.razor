@@ -1,0 +1,35 @@
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Day 1 Demonstration</a>
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    </div>
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Admin</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="admin/dashboard">
+                Dashboard
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="admin/users">
+                Users
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="admin/settings">
+                Settings
+            </NavLink>
+        </div>
+    </nav>
+</div>

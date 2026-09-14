@@ -1,0 +1,39 @@
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Day 2 Demo</a>
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    </div>
+</div>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Products</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="products/electronics/42">
+                Electronics #42
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="products/clothing/7">
+                Clothing #7
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3 mt-2">
+            <h6 class="text-white-50 ps-1">Checkout</h6>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="checkout/shipping">
+                Start Checkout
+            </NavLink>
+        </div>
+    </nav>
+</div>

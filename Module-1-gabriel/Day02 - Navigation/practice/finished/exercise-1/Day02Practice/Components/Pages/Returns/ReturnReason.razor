@@ -1,0 +1,38 @@
+@* TODO (Practice 2, Step 4): Add the @page directive for "/returns/reason/{orderId:int:min(1)}". *@
+@* TODO (Practice 2, Step 5): Inject NavigationManager. *@
+
+<PageTitle>Returns - Select Reason</PageTitle>
+
+<h1>Return Reason</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Why are you returning Order #???</h5>
+        @* TODO (Practice 2, Step 6b): Replace ??? above with the OrderId parameter value. *@
+
+        <p class="card-text">Select the reason for your return:</p>
+
+        <div class="d-grid gap-2 col-6">
+            <button class="btn btn-outline-primary" @onclick="ChooseRefund">
+                I want a refund
+            </button>
+            <button class="btn btn-outline-secondary" @onclick="ChooseExchange">
+                I want an exchange
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    @* TODO (Practice 2, Step 6): Add a [Parameter] property for OrderId (int). *@
+
+    private void ChooseRefund()
+    {
+        @* TODO (Practice 2, Step 7a): Use NavigateTo() to navigate to "/returns/refund/{OrderId}". *@
+    }
+
+    private void ChooseExchange()
+    {
+        @* TODO (Practice 2, Step 7b): Use NavigateTo() to navigate to "/returns/exchange/{OrderId}". *@
+    }
+}

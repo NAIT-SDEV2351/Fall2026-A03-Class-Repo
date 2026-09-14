@@ -1,0 +1,26 @@
+@page "/survey/complete"
+@* TODO (Practice 3, Step 7a): Inject NavigationManager. *@
+
+<PageTitle>Survey Complete</PageTitle>
+
+<h1>Survey Complete</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="alert alert-success">
+            <h5 class="alert-heading">Thank You!</h5>
+            Your survey responses have been recorded.
+        </div>
+
+        <button class="btn btn-outline-primary" @onclick="Retake">
+            Retake Survey
+        </button>
+    </div>
+</div>
+
+@code {
+    private void Retake()
+    {
+        @* TODO (Practice 3, Step 7b): Use NavigateTo() to navigate to "/survey/1" to restart. *@
+    }
+}

@@ -1,0 +1,48 @@
+@page "/register/preferences"
+@inject NavigationManager Navigation
+
+<PageTitle>Register - Preferences</PageTitle>
+
+<h1>Registration: Preferences</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Step 2 of 3: Your Preferences</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Preferred Language</label>
+            <select class="form-select">
+                <option>English</option>
+                <option>French</option>
+                <option>Spanish</option>
+            </select>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="newsletter" />
+            <label class="form-check-label" for="newsletter">Subscribe to newsletter</label>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" @onclick="GoBack">
+                &larr; Back
+            </button>
+            <button class="btn btn-primary" @onclick="GoToComplete">
+                Next: Complete &rarr;
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void GoBack()
+    {
+        // replace: true so the browser Back button skips this step — returning to Personal
+        // Info shouldn't re-stack Preferences in history. Forward moves (GoToComplete) push normally.
+        Navigation.NavigateTo("/register/info", replace: true);
+    }
+
+    private void GoToComplete()
+    {
+        Navigation.NavigateTo("/register/complete");
+    }
+}

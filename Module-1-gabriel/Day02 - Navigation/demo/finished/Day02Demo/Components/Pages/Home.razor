@@ -1,0 +1,46 @@
+@page "/"
+@inject NavigationManager Navigation
+
+<PageTitle>Day 2 Demo - NavigationManager</PageTitle>
+
+<h1>Day 2 Demo: Multiple Parameters &amp; NavigationManager</h1>
+
+<p class="lead">Use the form below to navigate to a product page programmatically.</p>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Product Search</h5>
+        <div class="row g-3 align-items-end">
+            <div class="col-auto">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control" @bind="category" placeholder="e.g. electronics" />
+            </div>
+            <div class="col-auto">
+                <label class="form-label">Product ID</label>
+                <input type="number" class="form-control" @bind="productId" min="1" />
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" @onclick="GoToProduct">
+                    Go to Product
+                </button>
+            </div>
+        </div>
+        <p class="text-muted mt-2">
+            This form uses <code>NavigationManager.NavigateTo()</code> to build and navigate
+            to the product URL programmatically.
+        </p>
+    </div>
+</div>
+
+@code {
+    private string category = "electronics";
+    private int productId = 42;
+
+    // Programmatic navigation: the destination URL is BUILT at runtime from user input, then
+    // NavigateTo() jumps to it. This is the NavigationManager alternative to a static <NavLink> —
+    // reach for it when code (a button handler, a validation result) decides where to go.
+    private void GoToProduct()
+    {
+        Navigation.NavigateTo($"/products/{category}/{productId}");
+    }
+}

@@ -1,0 +1,82 @@
+@* TODO (Practice 3, Step 1): Add the @page directive for "/survey/{page:int:range(1,3)}". *@
+@* TODO (Practice 3, Step 2): Inject NavigationManager. *@
+
+<PageTitle>Survey - Page ???</PageTitle>
+@* TODO (Practice 3, Step 3a): Replace ??? above with the Page parameter value. *@
+
+<h1>Survey</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Question ??? of 3</h5>
+        @* TODO (Practice 3, Step 3b): Replace ??? above with the Page parameter value. *@
+
+        @* Simulated survey questions -- content changes based on page number *@
+        <div class="mb-3">
+            <label class="form-label">
+                @if (Page == 1)
+                {
+                    <text>How satisfied are you with the course?</text>
+                }
+                else if (Page == 2)
+                {
+                    <text>How would you rate the instructor?</text>
+                }
+                else
+                {
+                    <text>Would you recommend this course to others?</text>
+                }
+            </label>
+            <select class="form-select">
+                <option>Very Satisfied</option>
+                <option>Satisfied</option>
+                <option>Neutral</option>
+                <option>Dissatisfied</option>
+            </select>
+        </div>
+
+        <div class="d-flex gap-2">
+            @if (Page > 1)
+            {
+                <button class="btn btn-outline-secondary" @onclick="GoBack">
+                    &larr; Back
+                </button>
+            }
+
+            @if (Page < 3)
+            {
+                <button class="btn btn-primary" @onclick="GoNext">
+                    Next &rarr;
+                </button>
+            }
+            else
+            {
+                <button class="btn btn-success" @onclick="Finish">
+                    Finish Survey
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    // TODO (Practice 3, Step 3): Change this to [Parameter] public int Page { get; set; }
+    //       and add the @page directive (Step 1) to receive the route parameter.
+    private int Page { get; set; } = 1;
+
+    private void GoNext()
+    {
+        @* TODO (Practice 3, Step 4): Use NavigateTo() to navigate to "/survey/{Page + 1}". *@
+    }
+
+    private void GoBack()
+    {
+        @* TODO (Practice 3, Step 5): Use NavigateTo() to navigate to "/survey/{Page - 1}" with replace: true.
+           Why replace: true? So the browser's back button doesn't create a loop between pages. *@
+    }
+
+    private void Finish()
+    {
+        @* TODO (Practice 3, Step 6): Use NavigateTo() to navigate to "/survey/complete". *@
+    }
+}
