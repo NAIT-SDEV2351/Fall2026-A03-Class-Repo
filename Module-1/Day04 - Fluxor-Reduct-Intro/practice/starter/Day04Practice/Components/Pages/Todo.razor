@@ -1,0 +1,83 @@
+@page "/todo"
+@* TODO: Add @inherits FluxorComponent *@
+@* TODO: Add @inject IState<Day04Practice.Features.Todo.Store.TodoState> TodoState *@
+@* TODO: Add @inject IDispatcher Dispatcher *@
+
+<PageTitle>Practice 2: Todo List</PageTitle>
+
+<h1>Practice 2: Todo List</h1>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter a new todo..."
+                   @bind="newTodoTitle" @bind:event="oninput"
+                   @onkeydown="HandleKeyDown" />
+            <button class="btn btn-primary" @onclick="AddTodo" disabled="@string.IsNullOrWhiteSpace(newTodoTitle)">
+                Add Todo
+            </button>
+        </div>
+    </div>
+</div>
+
+@* TODO: Replace the placeholder below with Fluxor state, and show an empty-state message when the list is empty (same @if pattern as Counter in Practice 1) *@
+@* Use: TodoState.Value.Items *@
+
+<div class="alert alert-info">
+    <strong>Instructions:</strong> Wire this component to the Fluxor store.
+    The UI is ready -- you need to add the Fluxor directives above, define actions,
+    implement reducers, create the feature class, and wire the @@code methods below.
+</div>
+
+@* When wired, render the todo list like this: *@
+@*
+<ul class="list-group">
+    @foreach (var item in TodoState.Value.Items)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <input type="checkbox" class="form-check-input me-2"
+                       checked="@item.IsComplete"
+                       @onchange="() => ToggleTodo(item.Id)" />
+                <span style="@(item.IsComplete ? "text-decoration: line-through; opacity: 0.6;" : "")">
+                    @item.Title
+                </span>
+            </div>
+            <button class="btn btn-sm btn-outline-danger" @onclick="() => RemoveTodo(item.Id)">
+                Remove
+            </button>
+        </li>
+    }
+</ul>
+*@
+
+@code {
+    private string newTodoTitle = string.Empty;
+
+    private void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTodoTitle))
+        {
+            // TODO: Dispatcher.Dispatch(new AddTodoAction(newTodoTitle));
+            newTodoTitle = string.Empty;
+        }
+    }
+
+    private void RemoveTodo(int id)
+    {
+        // TODO: Dispatcher.Dispatch(new RemoveTodoAction(id));
+    }
+
+    private void ToggleTodo(int id)
+    {
+        // TODO: Dispatcher.Dispatch(new ToggleTodoAction(id));
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            AddTodo();
+        }
+    }
+}
