@@ -1,10 +1,13 @@
 @page "/counter"
+@inherits FluxorComponent
+@inject IState<CounterState> CounterState
+@inject IDispatcher Dispatcher
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-<p class="lead">Current count: <strong>0</strong></p>
+<p class="lead">Current count: <strong>@CounterState.Value.Count</strong></p>
 
 <div class="btn-group" role="group">
     <button class="btn btn-success" @onclick="Increment">+ Increment</button>
@@ -15,16 +18,16 @@
 @code {
     private void Increment()
     {
-        
+        Dispatcher.Dispatch(new IncrementCounterAction());
     }
 
     private void Decrement()
     {
-        
+        Dispatcher.Dispatch(new DecrementCounterAction());
     }
 
     private void SetToTen()
     {
-        
+        Dispatcher.Dispatch(new SetCounterAction(10));
     }
 }

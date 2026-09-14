@@ -1,45 +1,45 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net10.0": {
-      "Fluxor/6.0.0": {
+      "Fluxor/6.11.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
         },
         "compile": {
-          "lib/net8.0/Fluxor.dll": {}
+          "lib/net10.0/Fluxor.dll": {}
         },
         "runtime": {
-          "lib/net8.0/Fluxor.dll": {}
+          "lib/net10.0/Fluxor.dll": {}
         }
       },
-      "Fluxor.Blazor.Web/6.0.0": {
+      "Fluxor.Blazor.Web/6.11.0": {
         "type": "package",
         "dependencies": {
-          "Fluxor": "6.0.0",
+          "Fluxor": "6.11.0",
           "Microsoft.AspNetCore.Components.Web": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
         },
         "compile": {
-          "lib/net8.0/Fluxor.Blazor.Web.dll": {}
+          "lib/net10.0/Fluxor.Blazor.Web.dll": {}
         },
         "runtime": {
-          "lib/net8.0/Fluxor.Blazor.Web.dll": {}
+          "lib/net10.0/Fluxor.Blazor.Web.dll": {}
         }
       },
-      "Fluxor.Blazor.Web.ReduxDevTools/6.0.0": {
+      "Fluxor.Blazor.Web.ReduxDevTools/6.11.0": {
         "type": "package",
         "dependencies": {
-          "Fluxor.Blazor.Web": "6.0.0",
+          "Fluxor.Blazor.Web": "6.11.0",
           "Microsoft.AspNetCore.Components.Web": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
         },
         "compile": {
-          "lib/net8.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+          "lib/net10.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
         },
         "runtime": {
-          "lib/net8.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+          "lib/net10.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/8.0.0": {
@@ -625,8 +625,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Fluxor.Blazor.Web": "6.0.0",
-          "Fluxor.Blazor.Web.ReduxDevTools": "6.0.0"
+          "Fluxor.Blazor.Web": "6.11.0",
+          "Fluxor.Blazor.Web.ReduxDevTools": "6.11.0"
         },
         "compile": {
           "bin/placeholder/Day04Demo.dll": {}
@@ -641,49 +641,50 @@
     }
   },
   "libraries": {
-    "Fluxor/6.0.0": {
-      "sha512": "1Z8q9wOdRmjyxf4BDRkZTggreZPMXbUgD54oXK4qKoLnSuYbVqX/Lxy39Ieok33hxahBd3qcyH1ZF+Qvw0eHCg==",
+    "Fluxor/6.11.0": {
+      "sha512": "UP8iahTHOk1oeht5psBzyUiC91mkWgJBvSn/5mhZFvHkR8rJnEtScqW6n2SxmwiH6/mvZMpqANLqg4Ib6ToQ1Q==",
       "type": "package",
-      "path": "fluxor/6.0.0",
+      "path": "fluxor/6.11.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "fluxor-small-logo.png",
-        "fluxor.6.0.0.nupkg.sha512",
+        "fluxor.6.11.0.nupkg.sha512",
         "fluxor.nuspec",
-        "lib/net6.0/Fluxor.dll",
-        "lib/net7.0/Fluxor.dll",
-        "lib/net8.0/Fluxor.dll"
+        "lib/net10.0/Fluxor.dll",
+        "lib/net8.0/Fluxor.dll",
+        "lib/net9.0/Fluxor.dll"
       ]
     },
-    "Fluxor.Blazor.Web/6.0.0": {
-      "sha512": "6wxUROUcLxOBdBA1f9Ei2cqw+UglBS8fHgP8QjgIBfvlxc7HIYakp3jXLPHUvX9glpE7+ZNYApBPzy48SgTEEA==",
+    "Fluxor.Blazor.Web/6.11.0": {
+      "sha512": "JdND7CBamv72lpBFa2iheMuh4amDcWc4rl+ltHaNppj5YLBKbD5p3U5q/K3n2NhgTDE/bwcwsUnOUydGQk6ibg==",
       "type": "package",
-      "path": "fluxor.blazor.web/6.0.0",
+      "path": "fluxor.blazor.web/6.11.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "analyzers/dotnet/cs/Fluxor.Blazor.Web.Analyzers.dll",
         "fluxor-blazor-logo-small.png",
-        "fluxor.blazor.web.6.0.0.nupkg.sha512",
+        "fluxor.blazor.web.6.11.0.nupkg.sha512",
         "fluxor.blazor.web.nuspec",
-        "lib/net6.0/Fluxor.Blazor.Web.dll",
-        "lib/net7.0/Fluxor.Blazor.Web.dll",
-        "lib/net8.0/Fluxor.Blazor.Web.dll"
+        "lib/net10.0/Fluxor.Blazor.Web.dll",
+        "lib/net8.0/Fluxor.Blazor.Web.dll",
+        "lib/net9.0/Fluxor.Blazor.Web.dll"
       ]
     },
-    "Fluxor.Blazor.Web.ReduxDevTools/6.0.0": {
-      "sha512": "V9N/4EV+gLbGAgvU2/F27+jsVdji9SZ7n7ebbAzOgzv39eykRYXusLRAFFZqIffAvFyDvfUr6oIjO+57w2BUvg==",
+    "Fluxor.Blazor.Web.ReduxDevTools/6.11.0": {
+      "sha512": "kYNz9iDQHSv/o0m05ZJs4Q+XPtEVKyIRUvyNezWyFtsJe59Lw1+xsHSKGtXlVsmIwQOKOyruI1dqeyROlp3DUg==",
       "type": "package",
-      "path": "fluxor.blazor.web.reduxdevtools/6.0.0",
+      "path": "fluxor.blazor.web.reduxdevtools/6.11.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "fluxor-blazor-reduxdevtools-small.png",
-        "fluxor.blazor.web.reduxdevtools.6.0.0.nupkg.sha512",
+        "fluxor.blazor.web.reduxdevtools.6.11.0.nupkg.sha512",
         "fluxor.blazor.web.reduxdevtools.nuspec",
-        "lib/net6.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
-        "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
-        "lib/net8.0/Fluxor.Blazor.Web.ReduxDevTools.dll"
+        "lib/net10.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net8.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net9.0/Fluxor.Blazor.Web.ReduxDevTools.dll"
       ]
     },
     "Microsoft.AspNetCore.Authorization/8.0.0": {
@@ -1470,32 +1471,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jkarpiak.NAIT\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/gabriel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\demo\\starter\\Day04Demo.Tests\\Day04Demo.Tests.csproj",
+      "projectUniqueName": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/gabriel-branch/Module-1-gabriel/Day04 - Fluxor-Reduct-Intro/demo/starter/Day04Demo.Tests/Day04Demo.Tests.csproj",
       "projectName": "Day04Demo.Tests",
-      "projectPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\demo\\starter\\Day04Demo.Tests\\Day04Demo.Tests.csproj",
-      "packagesPath": "C:\\Users\\jkarpiak.NAIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\demo\\starter\\Day04Demo.Tests\\obj\\",
+      "projectPath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/gabriel-branch/Module-1-gabriel/Day04 - Fluxor-Reduct-Intro/demo/starter/Day04Demo.Tests/Day04Demo.Tests.csproj",
+      "packagesPath": "/home/gabriel/.nuget/packages/",
+      "outputPath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/gabriel-branch/Module-1-gabriel/Day04 - Fluxor-Reduct-Intro/demo/starter/Day04Demo.Tests/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jkarpiak.NAIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/gabriel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1503,8 +1496,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\demo\\starter\\Day04Demo\\Day04Demo.csproj": {
-              "projectPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\demo\\starter\\Day04Demo\\Day04Demo.csproj"
+            "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/gabriel-branch/Module-1-gabriel/Day04 - Fluxor-Reduct-Intro/demo/starter/Day04Demo/Day04Demo.csproj": {
+              "projectPath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/gabriel-branch/Module-1-gabriel/Day04 - Fluxor-Reduct-Intro/demo/starter/Day04Demo/Day04Demo.csproj"
             }
           }
         }
@@ -1519,7 +1512,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -1555,7 +1548,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.111/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
