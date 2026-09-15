@@ -12,3 +12,9 @@ public record ToggleTodoAction(int Id);
 // TODO: Add LoadTodosAction (no parameters)
 // TODO: Add LoadTodosSuccessAction -- carries the loaded items
 // TODO: Add LoadTodosFailureAction -- carries the error message
+
+public record LoadTodosAction;
+
+public record LoadTodosSuccessAction(List<TodoItem> Items);
+
+public record LoadTodosFailureAction(string Error);
