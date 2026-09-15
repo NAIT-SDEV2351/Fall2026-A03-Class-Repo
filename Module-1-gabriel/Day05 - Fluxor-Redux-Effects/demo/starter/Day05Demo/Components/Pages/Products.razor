@@ -1,9 +1,14 @@
 @page "/products"
+
+@inherits FluxorComponent
+@inject IState<ProductState> ProductState
+@inject IDispatcher Dispatcher
+
 <PageTitle>Products</PageTitle>
 
 <h1>Product Catalog</h1>
 
-@if (isLoading)
+@if (ProductState.Value.IsLoading)
 {
     <div class="d-flex align-items-center mt-3">
         <div class="spinner-border text-primary me-3" role="status">
@@ -12,17 +17,17 @@
         <span>Loading products...</span>
     </div>
 }
-else if (errorMessage is not null)
+else if (ProductState.Value.ErrorMessage is not null)
 {
     <div class="alert alert-danger mt-3" role="alert">
         <h5 class="alert-heading">Error Loading Products</h5>
-        <p>@errorMessage</p>
+        <p>@ProductState.Value.ErrorMessage</p>
     </div>
 }
 else
 {
     <div class="row mt-3">
-        @foreach (var product in _products)
+        @foreach (var product in ProductState.Value.Items)
         {
             <div class="col-md-4 mb-3">
                 <div class="card">
@@ -38,7 +43,9 @@ else
 }
 
 @code {
-    private bool isLoading = true;
-    private string? errorMessage = null;
-    private List<Product> _products = [];
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
 }
