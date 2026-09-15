@@ -1,0 +1,44 @@
+@page "/products"
+<PageTitle>Products</PageTitle>
+
+<h1>Product Catalog</h1>
+
+@if (isLoading)
+{
+    <div class="d-flex align-items-center mt-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading products...</span>
+    </div>
+}
+else if (errorMessage is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Products</h5>
+        <p>@errorMessage</p>
+    </div>
+}
+else
+{
+    <div class="row mt-3">
+        @foreach (var product in _products)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Price.ToString("C")</p>
+                        <span class="badge bg-secondary">@product.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private bool isLoading = true;
+    private string? errorMessage = null;
+    private List<Product> _products = [];
+}

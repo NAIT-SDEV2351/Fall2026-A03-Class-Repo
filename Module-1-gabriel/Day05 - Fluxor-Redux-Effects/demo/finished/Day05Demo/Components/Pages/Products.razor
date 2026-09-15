@@ -1,0 +1,61 @@
+@page "/products"
+@* @inherits FluxorComponent makes this component auto-subscribe to the store: when a
+   reducer produces a new ProductState, the component re-renders itself — no manual
+   StateHasChanged. @inject IState<ProductState> is the read side (ProductState.Value),
+   IDispatcher is the write side (fire actions). *@
+@inherits FluxorComponent
+@inject IState<ProductState> ProductState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Products</PageTitle>
+
+<h1>Product Catalog</h1>
+
+@* The markup is a pure function of the state slice: the three branches map one-to-one to
+   IsLoading / ErrorMessage / Items. The component never decides WHEN to switch — the
+   reducers do, by setting those fields. The page just renders whatever the store currently holds. *@
+@if (ProductState.Value.IsLoading)
+{
+    <div class="d-flex align-items-center mt-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading products...</span>
+    </div>
+}
+else if (ProductState.Value.ErrorMessage is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Products</h5>
+        <p>@ProductState.Value.ErrorMessage</p>
+    </div>
+}
+else
+{
+    <div class="row mt-3">
+        @foreach (var product in ProductState.Value.Items)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Price.ToString("C")</p>
+                        <span class="badge bg-secondary">@product.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    // One dispatch on load kicks off the whole flow: LoadProductsAction → reducer flips
+    // IsLoading on → effect calls the service → success/failure action → reducer updates
+    // state → this component re-renders. base.OnInitialized() MUST be called first — it's
+    // what wires up FluxorComponent's subscription; skip it and the auto-re-render is lost.
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+}

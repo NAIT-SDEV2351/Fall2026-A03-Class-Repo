@@ -1,0 +1,55 @@
+@page "/products"
+
+@* Practice 2: Add Fluxor wiring below *@
+@* TODO: @inherits FluxorComponent *@
+@* TODO: @inject IState<ProductState> ProductState *@
+@* TODO: @inject IDispatcher Dispatcher *@
+
+<PageTitle>Products</PageTitle>
+
+<h1>Product Catalog <span class="badge bg-secondary">Practice 2-3</span></h1>
+
+@* --- Loading state --- *@
+@* TODO: Replace false with ProductState.Value.IsLoading *@
+@if (false)
+{
+    <div class="d-flex align-items-center mt-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading products...</span>
+    </div>
+}
+@* --- Error state --- *@
+@* TODO: Replace null with ProductState.Value.ErrorMessage *@
+else if ((string?)null is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Products</h5>
+        <p>@("Error message will appear here")</p>
+
+        @* Practice 3: Add retry button here *@
+        @* TODO: Add a button that dispatches LoadProductsAction to retry *@
+    </div>
+}
+@* --- Data state --- *@
+else
+{
+    @* Practice 3: Add empty-state check here *@
+    @* TODO: If product list is empty, show "No products found." *@
+
+    <div class="row mt-3">
+        @* TODO: Replace with foreach over ProductState.Value.Items *@
+        <div class="col-12">
+            <p class="text-muted">Wire Fluxor to see products here.</p>
+        </div>
+    </div>
+
+    @* Practice 2: Add refresh button *@
+    @* TODO: Add a "Refresh" button that re-dispatches LoadProductsAction *@
+}
+
+@code {
+    // Practice 2: Add OnInitialized to dispatch LoadProductsAction
+    // TODO: Override OnInitialized, call base.OnInitialized(), then dispatch LoadProductsAction
+}

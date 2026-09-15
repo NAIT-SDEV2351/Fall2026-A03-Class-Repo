@@ -1,0 +1,65 @@
+@page "/products"
+@inherits FluxorComponent
+@inject IState<ProductState> ProductState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Products</PageTitle>
+
+<h1>Product Catalog <span class="badge bg-warning text-dark">Practice 2 Complete (Practice 3 pending)</span></h1>
+
+@if (ProductState.Value.IsLoading)
+{
+    <div class="d-flex align-items-center mt-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading products...</span>
+    </div>
+}
+else if (ProductState.Value.ErrorMessage is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Products</h5>
+        <p>@ProductState.Value.ErrorMessage</p>
+
+        @* Practice 3: Add retry button here *@
+        @* TODO: Add a button that dispatches LoadProductsAction to retry *@
+    </div>
+}
+else
+{
+    <div class="row mt-3">
+        @* Practice 3: Add empty-state check here *@
+        @* TODO: If product list is empty, show "No products found." *@
+
+        @foreach (var product in ProductState.Value.Items)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Price.ToString("C")</p>
+                        <span class="badge bg-secondary">@product.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-outline-primary mt-2" @onclick="Refresh">
+        Refresh
+    </button>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+
+    private void Refresh()
+    {
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+}

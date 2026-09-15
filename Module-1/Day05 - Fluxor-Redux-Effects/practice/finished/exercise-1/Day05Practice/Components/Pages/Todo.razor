@@ -1,0 +1,94 @@
+@page "/todo"
+@inherits FluxorComponent
+@inject IState<TodoState> TodoState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Todo List</PageTitle>
+
+<h1>Todo List <span class="badge bg-success">Practice 1 Complete</span></h1>
+
+@if (TodoState.Value.IsLoading)
+{
+    <div class="d-flex align-items-center mt-3 mb-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading todos...</span>
+    </div>
+}
+else if (TodoState.Value.ErrorMessage is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Todos</h5>
+        <p>@TodoState.Value.ErrorMessage</p>
+    </div>
+}
+else
+{
+    <div class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Add a new todo..."
+                   @bind="newTitle" @bind:event="oninput"
+                   @onkeyup="HandleKeyUp" />
+            <button class="btn btn-primary" @onclick="AddTodo" disabled="@string.IsNullOrWhiteSpace(newTitle)">
+                Add
+            </button>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        @foreach (var item in TodoState.Value.Items)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <input type="checkbox" class="form-check-input me-2"
+                           checked="@item.IsComplete"
+                           @onchange="() => Dispatcher.Dispatch(new ToggleTodoAction(item.Id))" />
+                    <span class="@(item.IsComplete ? "text-decoration-line-through text-muted" : "")">
+                        @item.Title
+                    </span>
+                </div>
+                <button class="btn btn-outline-danger btn-sm"
+                        @onclick="() => Dispatcher.Dispatch(new RemoveTodoAction(item.Id))">
+                    Remove
+                </button>
+            </li>
+        }
+    </ul>
+
+    @if (!TodoState.Value.Items.Any())
+    {
+        <p class="text-muted mt-3">No todos yet. Add one above.</p>
+    }
+}
+
+@code {
+    private string newTitle = string.Empty;
+
+    // One dispatch on load starts the whole async cycle: LoadTodosAction → reducer flips
+    // IsLoading on → effect calls the service → success/failure action → reducer → re-render.
+    // base.OnInitialized() must come first — it wires up FluxorComponent's auto-subscription;
+    // skip it and the success action never re-renders the list.
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadTodosAction());
+    }
+
+    private void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTitle))
+        {
+            Dispatcher.Dispatch(new AddTodoAction(newTitle.Trim()));
+            newTitle = string.Empty;
+        }
+    }
+
+    private void HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            AddTodo();
+        }
+    }
+}

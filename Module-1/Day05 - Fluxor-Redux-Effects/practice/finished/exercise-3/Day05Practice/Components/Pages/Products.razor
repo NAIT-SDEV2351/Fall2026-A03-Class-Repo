@@ -1,0 +1,77 @@
+@page "/products"
+@inherits FluxorComponent
+@inject IState<ProductState> ProductState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Products</PageTitle>
+
+<h1>Product Catalog <span class="badge bg-success">Practice 2-3 Complete</span></h1>
+
+@if (ProductState.Value.IsLoading)
+{
+    <div class="d-flex align-items-center mt-3">
+        <div class="spinner-border text-primary me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading products...</span>
+    </div>
+}
+else if (ProductState.Value.ErrorMessage is not null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <h5 class="alert-heading">Error Loading Products</h5>
+        <p>@ProductState.Value.ErrorMessage</p>
+        <button class="btn btn-outline-danger" @onclick="Retry">
+            Retry
+        </button>
+    </div>
+}
+else if (!ProductState.Value.Items.Any())
+{
+    <div class="alert alert-info mt-3" role="alert">
+        <p class="mb-0">No products found.</p>
+    </div>
+}
+else
+{
+    <div class="row mt-3">
+        @foreach (var product in ProductState.Value.Items)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Price.ToString("C")</p>
+                        <span class="badge bg-secondary">@product.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-outline-primary mt-2" @onclick="Refresh">
+        Refresh
+    </button>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+
+    // Both Refresh and Retry dispatch the same action — the effect handles fresh loads
+    // and error-state retries uniformly. The ReduceLoadProductsAction reducer clears ErrorMessage
+    // and sets IsLoading=true, so the full loading cycle repeats regardless of which
+    // method triggered it.
+    private void Refresh()
+    {
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+
+    private void Retry()
+    {
+        Dispatcher.Dispatch(new LoadProductsAction());
+    }
+}

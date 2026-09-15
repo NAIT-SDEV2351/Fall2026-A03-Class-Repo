@@ -1,0 +1,23 @@
+@page "/"
+
+<PageTitle>Day 5 Demonstration - Effects and Async</PageTitle>
+
+<h1>Day 5 Demonstration: Fluxor Effects and Async</h1>
+
+<p class="lead">Instructor walkthrough &mdash; building the Product loading effect with the triple-action pattern.</p>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">What this demonstrates</h5>
+        <ul>
+            <li>The <strong>triple-action pattern</strong>: <code>LoadProductsAction</code> &rarr; <code>LoadProductsSuccessAction</code> / <code>LoadProductsFailureAction</code></li>
+            <li>An <code>[EffectMethod]</code> async method that calls a service and dispatches a result action</li>
+            <li>Constructor dependency injection inside an effect class</li>
+            <li>Reducers that handle loading, success, and failure &mdash; staying pure</li>
+        </ul>
+        <p class="text-muted mt-2">
+            The async flow is <strong>component dispatch &rarr; effect &rarr; service &rarr; success/failure action &rarr; reducer &rarr; UI</strong>.
+            Follow the numbered <code>TODO</code> markers in the code files.
+        </p>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+@page "/counter"
+@* @inherits FluxorComponent makes this component auto-subscribe to the store: when a reducer
+   produces a new CounterState, the component re-renders on its own. IState<T> reads the slice
+   (.Value below); IDispatcher sends actions into the store. *@
+@inherits FluxorComponent
+@inject IState<CounterState> CounterState
+@inject IDispatcher Dispatcher
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p class="lead">Current count: <strong data-verify-state="counter-count">@CounterState.Value.Count</strong></p>
+
+<div class="btn-group" role="group">
+    <button class="btn btn-success" @onclick="Increment">+ Increment</button>
+    <button class="btn btn-danger" @onclick="Decrement">- Decrement</button>
+    <button class="btn btn-secondary" @onclick="SetToTen">Set to 10</button>
+</div>
+
+@code {
+    // The component never changes state directly — it DISPATCHES an action and lets the reducer
+    // compute the next state. One-way data flow: dispatch → reducer → new state → auto re-render.
+    private void Increment()
+    {
+        Dispatcher.Dispatch(new IncrementCounterAction());
+    }
+
+    private void Decrement()
+    {
+        Dispatcher.Dispatch(new DecrementCounterAction());
+    }
+
+    private void SetToTen()
+    {
+        Dispatcher.Dispatch(new SetCounterAction(10));
+    }
+}
