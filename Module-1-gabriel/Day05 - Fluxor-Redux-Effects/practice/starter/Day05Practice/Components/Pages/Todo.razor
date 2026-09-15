@@ -73,6 +73,12 @@ else
     // Practice 1: Dispatch LoadTodosAction here to load todos on page init
     // TODO: Override OnInitialized, call base.OnInitialized(), then dispatch LoadTodosAction
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Dispatcher.Dispatch(new LoadTodosAction());
+    }
+
     private void AddTodo()
     {
         if (!string.IsNullOrWhiteSpace(newTitle))
