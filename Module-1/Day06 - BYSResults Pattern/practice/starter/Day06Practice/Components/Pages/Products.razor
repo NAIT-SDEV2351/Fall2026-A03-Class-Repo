@@ -1,0 +1,33 @@
+@page "/products"
+
+<PageTitle>Practice 2: Products</PageTitle>
+
+<h1>Practice 2: Service-to-Result&lt;T&gt; Refactor</h1>
+<p class="text-muted">
+    The <code>ProductService</code> currently throws exceptions on validation failure.
+    Refactor it to return <code>Result&lt;T&gt;</code> instead.
+</p>
+
+<div class="alert alert-info">
+    <strong>Instructions:</strong>
+    <ol class="mb-0 mt-2">
+        <li>Open <code>Services/ProductService.cs</code> and <code>Services/IProductService.cs</code></li>
+        <li>Change return types from <code>Task&lt;Product&gt;</code> to <code>Task&lt;Result&lt;Product&gt;&gt;</code></li>
+        <li>Replace <code>throw</code> statements with <code>result.AddError()</code></li>
+        <li>Return <code>result.WithValue()</code> on success</li>
+        <li>In <code>AddAsync</code>, accumulate both name and price errors before returning</li>
+    </ol>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5>Test Your Refactoring</h5>
+        <p>After refactoring, the service methods should:</p>
+        <ul>
+            <li><code>GetByIdAsync(0)</code> -- returns Result with error "Product ID must be greater than zero"</li>
+            <li><code>GetByIdAsync(99)</code> -- returns Result with error "Product with ID 99 not found"</li>
+            <li><code>GetByIdAsync(1)</code> -- returns Result with Value = Wireless Mouse</li>
+            <li><code>AddAsync(new Product(0, "", -5))</code> -- returns Result with TWO errors (name + price)</li>
+        </ul>
+    </div>
+</div>

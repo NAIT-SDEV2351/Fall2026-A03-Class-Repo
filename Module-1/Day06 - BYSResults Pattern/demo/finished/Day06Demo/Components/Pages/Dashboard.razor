@@ -1,0 +1,38 @@
+@page "/dashboard"
+@using Fluxor
+@inject IDispatcher Dispatcher
+
+<PageTitle>Dashboard Demonstration</PageTitle>
+
+<h1>Dashboard Multi-Component Wiring</h1>
+<p class="text-muted">
+    Three components wired to the shared <code>DashboardState</code> store.
+</p>
+
+<div class="alert alert-success">
+    <strong>Complete!</strong> All three components subscribe to the same Fluxor store slice.
+    One action dispatched, three components updated.
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <NotificationPanel />
+    </div>
+    <div class="col-md-4">
+        <ProductSummary />
+    </div>
+    <div class="col-md-4">
+        <UserProfile />
+    </div>
+</div>
+
+@code {
+    // One dispatch on page load is the whole demo: LoadDashboardAction → the effect
+    // calls the service → a success action updates the single DashboardState slice →
+    // all three cards (Notifications, Products, UserProfile) re-render from that one
+    // slice. Three components, one store, one dispatch — no component talks to another.
+    protected override void OnInitialized()
+    {
+        Dispatcher.Dispatch(new LoadDashboardAction());
+    }
+}

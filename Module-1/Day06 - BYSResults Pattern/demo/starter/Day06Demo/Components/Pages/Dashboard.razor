@@ -1,0 +1,34 @@
+@page "/dashboard"
+@using Fluxor
+@inject IDispatcher Dispatcher
+
+<PageTitle>Dashboard Demonstration</PageTitle>
+
+<h1>Dashboard Multi-Component Wiring</h1>
+<p class="text-muted">
+    Three components that will be wired to the shared <code>DashboardState</code> store.
+</p>
+
+<div class="alert alert-secondary">
+    <strong>Starting point:</strong> the store, the service, and the parent dispatch are complete.
+    The three cards below are not wired to the store yet -- that is Demo A.
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <NotificationPanel />
+    </div>
+    <div class="col-md-4">
+        <ProductSummary />
+    </div>
+    <div class="col-md-4">
+        <UserProfile />
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Dispatcher.Dispatch(new LoadDashboardAction());
+    }
+}

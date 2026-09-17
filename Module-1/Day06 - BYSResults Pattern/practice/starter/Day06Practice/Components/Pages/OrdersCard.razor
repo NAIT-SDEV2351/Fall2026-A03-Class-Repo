@@ -1,0 +1,24 @@
+@* ============================================================
+    Practice 1: Wire this card to the Fluxor store.
+
+    TODO Step 1: Add these three lines at the top of this file:
+        @using Fluxor
+        @inherits Fluxor.Blazor.Web.Components.FluxorComponent
+        @inject IState<AccountState> AccountState
+
+    TODO Step 2: Replace the "--" placeholder below with:
+        @AccountState.Value.OrderCount
+   ============================================================ *@
+
+<div class="card border-primary h-100">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">Orders</h5>
+    </div>
+    <div class="card-body text-center">
+        <p class="display-4 text-primary">
+            <!-- TODO: Replace with @AccountState.Value.OrderCount -->
+            --
+        </p>
+        <p class="text-muted">orders placed</p>
+    </div>
+</div>

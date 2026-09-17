@@ -1,0 +1,22 @@
+@page "/products"
+
+<PageTitle>Practice 2: Products</PageTitle>
+
+<h1>Practice 2: Service-to-Result&lt;T&gt; Refactor</h1>
+
+<div class="alert alert-success">
+    <strong>Complete!</strong> ProductService now returns <code>Result&lt;Product&gt;</code>
+    instead of throwing exceptions. ProductEffects checks <code>result.IsSuccess</code>
+    instead of using try/catch.
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5>Refactored Methods</h5>
+        <ul>
+            <li><code>GetByIdAsync</code> -- returns <code>Result&lt;Product&gt;</code> with validation and not-found errors</li>
+            <li><code>AddAsync</code> -- accumulates name and price errors before returning</li>
+            <li><code>UpdateAsync</code> -- returns <code>Result&lt;Product&gt;</code> with all validation paths</li>
+        </ul>
+    </div>
+</div>
