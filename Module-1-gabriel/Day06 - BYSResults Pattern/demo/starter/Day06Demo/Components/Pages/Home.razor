@@ -1,0 +1,37 @@
+@page "/"
+
+<PageTitle>Day 6 Demonstration</PageTitle>
+
+<h1>Day 6 Demonstration: Centralized State and the BYSResult Pattern</h1>
+
+<p class="lead">
+    This is the instructor demonstration project. It shows two things:
+</p>
+
+<div class="row mt-3">
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Demo A: Dashboard Multi-Component Wiring</h5>
+                <p class="card-text">
+                    Three sibling components all subscribe to a single shared
+                    <code>DashboardState</code> store slice. One action dispatch
+                    updates all three at once.
+                </p>
+                <a href="/dashboard" class="btn btn-outline-primary mt-2 d-block">Go to Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Demo B: Service Result&lt;T&gt; Refactor</h5>
+                <p class="card-text">
+                    The dashboard service returns <code>Result&lt;DashboardData&gt;</code>
+                    and the effect checks <code>result.IsSuccess</code> instead of
+                    wrapping the call in try/catch.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
