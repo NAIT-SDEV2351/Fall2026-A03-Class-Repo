@@ -25,15 +25,18 @@ public class DashboardEffects(IDashboardService dashboardService)
         //         dispatcher.Dispatch(new LoadDashboardFailureAction(
         //             string.Join("; ", errors)));
         //     }
-        try
+        var result = await dashboardService.GetDashboardDataAsync();
+
+        if (result.IsSuccess)
         {
-            var data = await dashboardService.GetDashboardDataAsync();
+            var data = result.Value;
             dispatcher.Dispatch(new LoadDashboardSuccessAction(
                 data.NotificationCount, data.ProductCount, data.UserName));
         }
-        catch (Exception ex)
+        else
         {
-            dispatcher.Dispatch(new LoadDashboardFailureAction(ex.Message));
+            var errors = result.Errors.Select(e => e.ToString().ToList()); 
+            dispatcher.Dispatch(new LoadDashboardFailureAction(string.Join("; ", errors)));
         }
     }
 }

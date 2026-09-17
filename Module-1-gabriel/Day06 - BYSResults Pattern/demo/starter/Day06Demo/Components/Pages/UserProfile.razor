@@ -1,11 +1,26 @@
+@using Fluxor
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<DashboardState> DashboardState
+
 <div class="card border-info h-100">
     <div class="card-header bg-info text-white">
         <h5 class="card-title mb-0">User Profile</h5>
     </div>
-    <div class="card-body text-center">
-        <p class="display-4 text-info">
-            --
-        </p>
-        <p class="text-muted">logged in as</p>
-    </div>
+    @if (DashboardState.Value.IsLoading)
+    {
+        <p>Loading...</p>
+    }
+    else if (!string.IsNullOrWhiteSpace(DashboardState.Value.ErrorMessage))
+    {
+        <p class="text-danger">@DashboardState.Value.ErrorMessage</p>
+    }
+    else
+    {
+        <div class="card-body text-center">
+            <p class="display-4 text-info">
+                @DashboardState.Value.UserName
+            </p>
+            <p class="text-muted">logged in as</p>
+        </div>
+    }
 </div>

@@ -1,11 +1,27 @@
+@using Fluxor
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<DashboardState> DashboardState
+
 <div class="card border-primary h-100">
     <div class="card-header bg-primary text-white">
         <h5 class="card-title mb-0">Notifications</h5>
     </div>
-    <div class="card-body text-center">
-        <p class="display-4 text-primary">
-            --
-        </p>
-        <p class="text-muted">unread notifications</p>
-    </div>
+    @if (DashboardState.Value.IsLoading)
+    {
+        <p>Loading...</p>
+    }
+    else if (!string.IsNullOrWhiteSpace(DashboardState.Value.ErrorMessage))
+    {
+        <p class="text-danger">@DashboardState.Value.ErrorMessage</p>
+    }
+    else
+    {
+        <div class="card-body text-center">
+            <p class="display-4 text-primary">
+                @DashboardState.Value.NotificationCount
+            </p>
+            <p class="text-muted">unread notifications</p>
+        </div>
+    }
 </div>
+
