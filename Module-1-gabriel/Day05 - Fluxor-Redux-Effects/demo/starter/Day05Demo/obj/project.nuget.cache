@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "shSbk5aANcI=",
+  "success": true,
+  "projectFilePath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/demo/starter/Day05Demo/Day05Demo.csproj",
+  "expectedPackageFiles": [
+    "/home/gabriel/.nuget/packages/fluxor/6.0.0/fluxor.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor.blazor.web/6.0.0/fluxor.blazor.web.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor.blazor.web.reduxdevtools/6.0.0/fluxor.blazor.web.reduxdevtools.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.11/microsoft.aspnetcore.app.internal.assets.10.0.11.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.authorization/8.0.0/microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.components/8.0.0/microsoft.aspnetcore.components.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.0/microsoft.aspnetcore.components.analyzers.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.components.forms/8.0.0/microsoft.aspnetcore.components.forms.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.components.web/8.0.0/microsoft.aspnetcore.components.web.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.metadata/8.0.0/microsoft.aspnetcore.metadata.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.jsinterop/8.0.0/microsoft.jsinterop.8.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

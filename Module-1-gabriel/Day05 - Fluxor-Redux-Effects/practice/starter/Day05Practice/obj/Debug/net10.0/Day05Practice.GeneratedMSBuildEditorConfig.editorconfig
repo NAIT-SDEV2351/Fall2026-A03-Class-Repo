@@ -1,0 +1,55 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Day05Practice
+build_property.RootNamespace = Day05Practice
+build_property.ProjectDir = /home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Pages/Products.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qcm9kdWN0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Pages/Todo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ub2RvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-nulh8v7rls
+
+[/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-cttsh5t8p6

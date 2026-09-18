@@ -1,0 +1,27 @@
+@using Fluxor
+@* @inherits FluxorComponent auto-subscribes to the IState<> injected below and
+   re-renders this card whenever the AccountState slice changes — no manual
+   StateChanged wiring needed. One dispatched action updates all three cards. *@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<AccountState> AccountState
+
+<div class="card border-primary h-100">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">Orders</h5>
+    </div>
+    <div class="card-body text-center">
+        @if (AccountState.Value.IsLoading)
+        {
+            <p class="text-muted">Loading...</p>
+        }
+        else if (AccountState.Value.ErrorMessage is not null)
+        {
+            <p class="text-danger">@AccountState.Value.ErrorMessage</p>
+        }
+        else
+        {
+            <p class="display-4 text-primary">@AccountState.Value.OrderCount</p>
+            <p class="text-muted">orders placed</p>
+        }
+    </div>
+</div>

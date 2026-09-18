@@ -1,0 +1,35 @@
+@page "/account"
+@using Fluxor
+@inject IDispatcher Dispatcher
+
+<PageTitle>Practice 1: Account Overview</PageTitle>
+
+<h1>Practice 1: Account Overview Component Wiring</h1>
+<p class="text-muted">
+    Wire three pre-built cards to the shared <code>AccountState</code> store.
+    Each card below has UI markup but no Fluxor wiring yet.
+</p>
+
+<div class="alert alert-info">
+    <strong>Instructions:</strong> Open each card file (OrdersCard.razor, WishlistCard.razor,
+    MembershipCard.razor) and add the Fluxor wiring. See the TODO comments in each file.
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <OrdersCard />
+    </div>
+    <div class="col-md-4">
+        <WishlistCard />
+    </div>
+    <div class="col-md-4">
+        <MembershipCard />
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Dispatcher.Dispatch(new LoadAccountAction());
+    }
+}

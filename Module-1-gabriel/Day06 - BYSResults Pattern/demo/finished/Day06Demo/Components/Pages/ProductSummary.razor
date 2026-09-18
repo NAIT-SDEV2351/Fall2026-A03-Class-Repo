@@ -1,0 +1,28 @@
+@using Fluxor
+@* @inherits FluxorComponent auto-subscribes this card to DashboardState: when the
+   slice changes the base class calls StateHasChanged for us, so the card re-renders.
+   Without it the card would show the new value only on the next manual re-render.
+   This auto-subscribe is what lets ONE dispatch update all three cards at once. *@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<DashboardState> DashboardState
+
+<div class="card border-success h-100">
+    <div class="card-header bg-success text-white">
+        <h5 class="card-title mb-0">Products</h5>
+    </div>
+    <div class="card-body text-center">
+        @if (DashboardState.Value.IsLoading)
+        {
+            <p class="text-muted">Loading...</p>
+        }
+        else if (DashboardState.Value.ErrorMessage is not null)
+        {
+            <p class="text-danger">@DashboardState.Value.ErrorMessage</p>
+        }
+        else
+        {
+            <p class="display-4 text-success" data-verify-state="dashboard-products">@DashboardState.Value.ProductCount</p>
+            <p class="text-muted">products in catalog</p>
+        }
+    </div>
+</div>

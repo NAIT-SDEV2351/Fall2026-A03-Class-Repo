@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "xAS1Tqw60f4=",
+  "success": true,
+  "projectFilePath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day06 - BYSResults Pattern/practice/starter/Day06Practice/Day06Practice.csproj",
+  "expectedPackageFiles": [
+    "/home/gabriel/.nuget/packages/bysresults/1.2.3/bysresults.1.2.3.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor/6.0.0/fluxor.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor.blazor.web/6.0.0/fluxor.blazor.web.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.11/microsoft.aspnetcore.app.internal.assets.10.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

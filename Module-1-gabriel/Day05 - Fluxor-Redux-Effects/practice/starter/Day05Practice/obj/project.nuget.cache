@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "D5MwsV1EK0E=",
+  "success": true,
+  "projectFilePath": "/home/gabriel/Documents/nait/sem3/2351-enterprise-app/Fall2026-A03-Class-Repo/Module-1-gabriel/Day05 - Fluxor-Redux-Effects/practice/starter/Day05Practice/Day05Practice.csproj",
+  "expectedPackageFiles": [
+    "/home/gabriel/.nuget/packages/fluxor/6.0.0/fluxor.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor.blazor.web/6.0.0/fluxor.blazor.web.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/fluxor.blazor.web.reduxdevtools/6.0.0/fluxor.blazor.web.reduxdevtools.6.0.0.nupkg.sha512",
+    "/home/gabriel/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.11/microsoft.aspnetcore.app.internal.assets.10.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

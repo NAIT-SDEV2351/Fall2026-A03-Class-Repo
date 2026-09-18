@@ -1,0 +1,27 @@
+@using Fluxor
+@* @inherits FluxorComponent auto-subscribes this card to DashboardState (calls
+   StateHasChanged when the slice changes) — the same auto-subscribe the other two
+   cards use, which is why one dispatch refreshes all three. *@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<DashboardState> DashboardState
+
+<div class="card border-info h-100">
+    <div class="card-header bg-info text-white">
+        <h5 class="card-title mb-0">User Profile</h5>
+    </div>
+    <div class="card-body text-center">
+        @if (DashboardState.Value.IsLoading)
+        {
+            <p class="text-muted">Loading...</p>
+        }
+        else if (DashboardState.Value.ErrorMessage is not null)
+        {
+            <p class="text-danger">@DashboardState.Value.ErrorMessage</p>
+        }
+        else
+        {
+            <p class="display-4 text-info" data-verify-state="dashboard-user">@DashboardState.Value.UserName</p>
+            <p class="text-muted">logged in as</p>
+        }
+    </div>
+</div>
