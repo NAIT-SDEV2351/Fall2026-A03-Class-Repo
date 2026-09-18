@@ -1,0 +1,75 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Day06Demo/1.0.0": {
+        "dependencies": {
+          "BYSResults": "1.2.3",
+          "Fluxor.Blazor.Web": "6.0.0"
+        },
+        "runtime": {
+          "Day06Demo.dll": {}
+        }
+      },
+      "BYSResults/1.2.3": {
+        "runtime": {
+          "lib/net8.0/BYSResults.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "Fluxor/6.0.0": {
+        "runtime": {
+          "lib/net8.0/Fluxor.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "Fluxor.Blazor.Web/6.0.0": {
+        "dependencies": {
+          "Fluxor": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Fluxor.Blazor.Web.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Day06Demo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BYSResults/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xh55VyGNzozAgAT3ZKzoVDa/Bm8LzsS4QUWtnM6Hdq8RI5RnLAK8sW5vyLmEZ6MASCdcmWMCWGdC64xdJO4oYQ==",
+      "path": "bysresults/1.2.3",
+      "hashPath": "bysresults.1.2.3.nupkg.sha512"
+    },
+    "Fluxor/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Z8q9wOdRmjyxf4BDRkZTggreZPMXbUgD54oXK4qKoLnSuYbVqX/Lxy39Ieok33hxahBd3qcyH1ZF+Qvw0eHCg==",
+      "path": "fluxor/6.0.0",
+      "hashPath": "fluxor.6.0.0.nupkg.sha512"
+    },
+    "Fluxor.Blazor.Web/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6wxUROUcLxOBdBA1f9Ei2cqw+UglBS8fHgP8QjgIBfvlxc7HIYakp3jXLPHUvX9glpE7+ZNYApBPzy48SgTEEA==",
+      "path": "fluxor.blazor.web/6.0.0",
+      "hashPath": "fluxor.blazor.web.6.0.0.nupkg.sha512"
+    }
+  }
+}
