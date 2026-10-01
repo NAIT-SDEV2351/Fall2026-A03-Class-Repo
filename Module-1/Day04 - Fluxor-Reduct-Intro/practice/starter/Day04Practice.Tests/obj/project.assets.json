@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net10.0": {
       "Fluxor/6.0.0": {
@@ -1470,32 +1470,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jkarpiak.NAIT\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/jayden/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\practice\\starter\\Day04Practice.Tests\\Day04Practice.Tests.csproj",
+      "projectUniqueName": "/home/jayden/School/2351/Module-1/Day04 - Fluxor-Reduct-Intro/practice/starter/Day04Practice.Tests/Day04Practice.Tests.csproj",
       "projectName": "Day04Practice.Tests",
-      "projectPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\practice\\starter\\Day04Practice.Tests\\Day04Practice.Tests.csproj",
-      "packagesPath": "C:\\Users\\jkarpiak.NAIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\practice\\starter\\Day04Practice.Tests\\obj\\",
+      "projectPath": "/home/jayden/School/2351/Module-1/Day04 - Fluxor-Reduct-Intro/practice/starter/Day04Practice.Tests/Day04Practice.Tests.csproj",
+      "packagesPath": "/home/jayden/.nuget/packages/",
+      "outputPath": "/home/jayden/School/2351/Module-1/Day04 - Fluxor-Reduct-Intro/practice/starter/Day04Practice.Tests/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jkarpiak.NAIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/jayden/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1503,8 +1496,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\practice\\starter\\Day04Practice\\Day04Practice.csproj": {
-              "projectPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 01\\Day 04\\practice\\starter\\Day04Practice\\Day04Practice.csproj"
+            "/home/jayden/School/2351/Module-1/Day04 - Fluxor-Reduct-Intro/practice/starter/Day04Practice/Day04Practice.csproj": {
+              "projectPath": "/home/jayden/School/2351/Module-1/Day04 - Fluxor-Reduct-Intro/practice/starter/Day04Practice/Day04Practice.csproj"
             }
           }
         }
@@ -1519,7 +1512,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -1555,7 +1548,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.112/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
