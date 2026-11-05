@@ -1,0 +1,68 @@
+@page "/orders"
+@using Microsoft.EntityFrameworkCore
+@using Day26Practice.Data
+@using Day26Practice.Models
+@inject StoreDbContext Context
+@rendermode RenderMode.InteractiveServer
+
+<PageTitle>Orders</PageTitle>
+
+<h3>Orders</h3>
+
+@if (_orders is null)
+{
+    <p>Loading...</p>
+}
+else if (_orders.Count == 0)
+{
+    <div class="alert alert-info">No orders yet. Try the checkout pages.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in _orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.ProductId</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.Total.ToString("C")</td>
+                    <td>@order.CreatedAt.ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-outline-secondary btn-sm" @onclick="RefreshAsync">Refresh</button>
+
+@code {
+    private List<Order>? _orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadOrdersAsync();
+    }
+
+    private async Task LoadOrdersAsync()
+    {
+        _orders = await Context.Orders.AsNoTracking().OrderByDescending(o => o.CreatedAt).ToListAsync();
+    }
+
+    private async Task RefreshAsync()
+    {
+        await LoadOrdersAsync();
+    }
+}

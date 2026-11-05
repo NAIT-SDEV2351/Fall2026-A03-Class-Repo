@@ -1,0 +1,5 @@
+/* Day 26 styles */
+
+/* Bootstrap 5.3's default link blue (#0d6efd) is 4.27:1 on the #f8f9fa sidebar, under
+   WCAG AA's 4.5:1. #0a58ca is Bootstrap's own link-hover colour. */
+:root { --bs-link-color: #0a58ca; --bs-link-color-rgb: 10, 88, 202; }

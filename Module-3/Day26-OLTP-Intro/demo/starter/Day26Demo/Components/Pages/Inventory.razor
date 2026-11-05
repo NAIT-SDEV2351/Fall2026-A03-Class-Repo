@@ -1,0 +1,69 @@
+@page "/inventory"
+@using Microsoft.EntityFrameworkCore
+@using Day26Demo.Data
+@using Day26Demo.Models
+@using Day26Demo.Services
+@inject StoreDbContext Context
+@inject CheckoutService Checkout
+@rendermode RenderMode.InteractiveServer
+
+<PageTitle>Inventory</PageTitle>
+
+<h3>Product Inventory</h3>
+
+@if (_products is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in _products)
+            {
+                <tr class="@(product.StockQuantity <= 0 ? "table-danger" : "")">
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.StockQuantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-outline-secondary btn-sm" @onclick="RefreshAsync">Refresh</button>
+    <button class="btn btn-warning btn-sm ms-2" @onclick="ResetAsync">Reset Database</button>
+}
+
+@code {
+    private List<Product>? _products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProductsAsync();
+    }
+
+    private async Task LoadProductsAsync()
+    {
+        _products = await Context.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    }
+
+    private async Task RefreshAsync()
+    {
+        await LoadProductsAsync();
+    }
+
+    private async Task ResetAsync()
+    {
+        await Checkout.ResetDatabaseAsync();
+        await LoadProductsAsync();
+    }
+}

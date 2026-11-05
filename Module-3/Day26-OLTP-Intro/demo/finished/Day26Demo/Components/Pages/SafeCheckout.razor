@@ -1,0 +1,88 @@
+@page "/safe-checkout"
+@using Day26Demo.Data
+@using Day26Demo.Models
+@using Day26Demo.Services
+@using Microsoft.EntityFrameworkCore
+@inject StoreDbContext Context
+@inject CheckoutService Checkout
+@rendermode RenderMode.InteractiveServer
+
+<PageTitle>Safe Checkout</PageTitle>
+
+<h3>Safe Checkout <span class="badge bg-success">With Transaction</span></h3>
+<p>This checkout wraps all operations in an explicit transaction.
+   If any step fails, everything rolls back. Data stays consistent.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Place Order</h5>
+                <div class="mb-3">
+                    <label class="form-label" for="product">Product</label>
+                    <select id="product" class="form-select" @bind="_selectedProductId">
+                        @if (_products is not null)
+                        {
+                            @foreach (var p in _products)
+                            {
+                                <option value="@p.Id">@p.Name (Stock: @p.StockQuantity)</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="quantity">Quantity</label>
+                    <input id="quantity" type="number" class="form-control" @bind="_quantity" min="1" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="customer">Customer Name</label>
+                    <input id="customer" type="text" class="form-control" @bind="_customer" />
+                </div>
+                <button class="btn btn-success" @onclick="AttemptCheckoutAsync">
+                    Safe Checkout (With Transaction)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Result</h5>
+                @if (!string.IsNullOrEmpty(_result))
+                {
+                    <div class="alert @(_isError ? "alert-danger" : "alert-success")">
+                        @_result
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Product>? _products;
+    private int _selectedProductId = 1;
+    private int _quantity = 1;
+    private string _customer = "Alice";
+    private string? _result;
+    private bool _isError;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _products = await Context.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    }
+
+    private async Task AttemptCheckoutAsync()
+    {
+        _result = null;
+        _isError = false;
+
+        // SafeCheckoutAsync returns a Result — even on failure it rolls back and returns
+        // a handled result, so there is no try/catch at the call site.
+        var result = await Checkout.SafeCheckoutAsync(_selectedProductId, _quantity, _customer);
+        _isError = !result.IsSuccess;
+        _result = result.IsSuccess ? result.Value : result.FirstError?.Message;
+
+        _products = await Context.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    }
+}

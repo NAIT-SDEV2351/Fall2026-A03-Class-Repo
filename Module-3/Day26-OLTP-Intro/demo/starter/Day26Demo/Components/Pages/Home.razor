@@ -1,0 +1,18 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h3>Day 26 — OLTP Overview and ACID Principles</h3>
+<p class="lead">This demo shows what happens when database operations lack proper transaction boundaries.</p>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">Demo Flow</h5>
+        <ol>
+            <li><strong>Inventory</strong> — View current product stock (pre-seeded data)</li>
+            <li><strong>Broken Checkout</strong> — Attempt a checkout without a transaction. Observe data corruption.</li>
+            <li><strong>Safe Checkout</strong> — Same checkout wrapped in an explicit transaction. Data stays consistent.</li>
+            <li><strong>Orders</strong> — View created orders to verify results</li>
+        </ol>
+    </div>
+</div>

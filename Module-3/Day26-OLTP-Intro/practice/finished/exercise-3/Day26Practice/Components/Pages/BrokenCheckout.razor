@@ -1,0 +1,107 @@
+@page "/broken-checkout"
+@using Day26Practice.Data
+@using Day26Practice.Models
+@using Day26Practice.Services
+@using Microsoft.EntityFrameworkCore
+@inject StoreDbContext Context
+@inject CheckoutService Checkout
+@rendermode RenderMode.InteractiveServer
+
+<PageTitle>Broken Checkout</PageTitle>
+
+<h3>Broken Checkout <span class="badge bg-danger">No Transaction</span></h3>
+<p>This checkout saves the inventory deduction, then a failure interrupts it before the order is created.
+   With no explicit transaction, that already-committed inventory change cannot be rolled back, so the data is left inconsistent.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Place Order</h5>
+                <div class="mb-3">
+                    <label class="form-label" for="product">Product</label>
+                    <select id="product" class="form-select" @bind="_selectedProductId">
+                        @if (_products is not null)
+                        {
+                            @foreach (var p in _products)
+                            {
+                                <option value="@p.Id">@p.Name (Stock: @p.StockQuantity)</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="quantity">Quantity</label>
+                    <input id="quantity" type="number" class="form-control" @bind="_quantity" min="1" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="customer">Customer Name</label>
+                    <input id="customer" type="text" class="form-control" @bind="_customer" />
+                </div>
+                <button class="btn btn-danger" @onclick="AttemptCheckoutAsync">
+                    Attempt Broken Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Result</h5>
+                @if (!string.IsNullOrEmpty(_result))
+                {
+                    <div class="alert @(_isError ? "alert-danger" : "alert-success")">
+                        @_result
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(_explanation))
+                {
+                    <div class="alert alert-warning">
+                        <strong>What happened:</strong> @_explanation
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Product>? _products;
+    private int _selectedProductId = 1;
+    private int _quantity = 1;
+    private string _customer = "Alice";
+    private string? _result;
+    private string? _explanation;
+    private bool _isError;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _products = await Context.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    }
+
+    private async Task AttemptCheckoutAsync()
+    {
+        _result = null;
+        _explanation = null;
+        _isError = false;
+
+        try
+        {
+            var result = await Checkout.BrokenCheckoutAsync(_selectedProductId, _quantity, _customer);
+            // A validation failure is HANDLED — it returns a Result, no crash.
+            _isError = !result.IsSuccess;
+            _result = result.IsSuccess ? result.Value : result.FirstError?.Message;
+        }
+        catch (Exception ex)
+        {
+            // The simulated crash between saves is UNCONTROLLED — it surfaces as an exception.
+            _isError = true;
+            _result = $"Exception: {ex.Message}";
+            _explanation = "Inventory was already deducted (Step 1 committed), but the order was never created " +
+                "(Step 2 never ran). Navigate to the Inventory page to see the damage. This is an ATOMICITY violation.";
+        }
+
+        // Refresh products to show the damage
+        _products = await Context.Products.AsNoTracking().OrderBy(p => p.Id).ToListAsync();
+    }
+}
