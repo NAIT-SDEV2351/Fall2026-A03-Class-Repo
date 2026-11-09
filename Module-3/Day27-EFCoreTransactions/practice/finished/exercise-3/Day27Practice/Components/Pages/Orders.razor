@@ -1,0 +1,62 @@
+@page "/orders"
+@using Day27Practice.Data
+@using Day27Practice.Models
+@using Microsoft.EntityFrameworkCore
+@inject StoreDbContext Context
+
+<PageTitle>Orders</PageTitle>
+
+<h2>Orders</h2>
+
+@if (_orders is null)
+{
+    <p>Loading...</p>
+}
+else if (_orders.Count == 0)
+{
+    <p>No orders yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Product ID</th>
+                <th>Qty</th>
+                <th>Total</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in _orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.ProductId</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.Total.ToString("C")</td>
+                    <td>@order.CreatedAt.ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-secondary" @onclick="Refresh">Refresh</button>
+
+@code {
+    private List<Order>? _orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _orders = await Context.Orders.OrderByDescending(o => o.CreatedAt).ToListAsync();
+    }
+
+    private async Task Refresh()
+    {
+        _orders = await Context.Orders.OrderByDescending(o => o.CreatedAt).ToListAsync();
+    }
+}

@@ -1,0 +1,23 @@
+html, body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 1rem;
+}
+
+.content {
+    max-width: 900px;
+}
+
+/* FocusOnNavigate moves focus to the page's <h1> after each navigation so screen
+   readers announce the new page. The heading is not interactive, so it does not
+   need the browser's focus outline. */
+h1:focus {
+    outline: none;
+}

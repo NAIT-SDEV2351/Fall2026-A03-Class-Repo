@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.10" />
+    <PackageReference Include="BYSResults" Version="1.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10" />
+    <!-- Pin patched SQLite native bundle: EF Core Sqlite 10.0.10 pulls
+         SQLitePCLRaw.lib.e_sqlite3 2.1.11 transitively, which carries advisory
+         GHSA-2m69-gcr7-jv3q (NU1903). The advisory covers 2.1.11 too, so
+         upgrading EF Core does NOT clear it. 2.1.12 ships the fixed native
+         library and is what actually resolves the warning. -->
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.12" />
+  </ItemGroup>
+</Project>

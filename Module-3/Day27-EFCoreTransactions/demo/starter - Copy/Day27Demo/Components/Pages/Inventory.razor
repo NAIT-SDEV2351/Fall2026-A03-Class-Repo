@@ -1,0 +1,45 @@
+@page "/inventory"
+@using Day27Demo.Data
+@using Day27Demo.Models
+@using Microsoft.EntityFrameworkCore
+@inject StoreDbContext Context
+
+<PageTitle>Inventory</PageTitle>
+
+<h2>Inventory</h2>
+
+@if (_products is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Stock</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in _products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.StockQuantity</td>
+                    <td>@product.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Product>? _products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _products = await Context.Products.ToListAsync();
+    }
+}

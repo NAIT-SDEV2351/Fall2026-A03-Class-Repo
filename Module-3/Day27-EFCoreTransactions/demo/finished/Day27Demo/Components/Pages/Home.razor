@@ -1,0 +1,14 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Day 27 — EF Core Transactions Demo</h1>
+
+<p>Use the navigation above to explore transaction patterns:</p>
+
+<ul>
+    <li><strong>Inventory</strong> — View current stock levels</li>
+    <li><strong>Orders</strong> — View completed orders</li>
+    <li><strong>Broken Checkout</strong> — the Day 26 bug: inventory saved, card charged, then a crash with no transaction to undo either</li>
+    <li><strong>Safe Checkout</strong> — Day 27 fix: one explicit transaction wrapping both saves and the charge between them</li>
+</ul>

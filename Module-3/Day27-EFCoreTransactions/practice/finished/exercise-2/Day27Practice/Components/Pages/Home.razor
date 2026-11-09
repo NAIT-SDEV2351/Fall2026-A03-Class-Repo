@@ -1,0 +1,26 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Day 27 -- EF Core Transactions Practice</h1>
+
+<p>Complete the exercises below to learn how EF Core handles transactions:</p>
+
+<ul>
+    <li>
+        <strong>Practice 1: Implicit Transactions</strong> --
+        Go to <a href="/add-product">Add Product</a> and observe how single vs. broken SaveChanges behaves.
+        Check <a href="/inventory">Inventory</a> after each test to see the results.
+    </li>
+    <li>
+        <strong>Practice 2: Explicit Transaction</strong> --
+        Open <code>Services/CheckoutService.cs</code> and implement <code>CheckoutAsync</code>
+        using <code>BeginTransactionAsync</code>. Test it from the <a href="/checkout">Checkout</a> page.
+    </li>
+    <li>
+        <strong>Practice 3: Rollback Verification</strong> --
+        Implement <code>FailingCheckoutAsync</code> with a simulated failure.
+        Test from <a href="/failing-checkout">Failing Checkout</a>, then verify
+        <a href="/inventory">Inventory</a> and <a href="/orders">Orders</a> are unchanged.
+    </li>
+</ul>

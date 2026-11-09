@@ -1,0 +1,42 @@
+@page "/safe-checkout"
+@using Day27Demo.Services
+@inject CheckoutService Checkout
+
+<PageTitle>Safe Checkout</PageTitle>
+
+<h2>Safe Checkout (Explicit Transaction)</h2>
+<p>Both operations wrapped in BeginTransactionAsync — all succeed or all roll back.</p>
+
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<div class="mb-3">
+    <label>Quantity: <input type="number" @bind="_quantity" /></label>
+</div>
+<div class="mb-3">
+    <label>Customer: <input type="text" @bind="_customer" /></label>
+</div>
+
+<button class="btn btn-primary" @onclick="RunSafeCheckout">Run Safe Checkout</button>
+
+@if (!string.IsNullOrEmpty(_result))
+{
+    <div class="alert @(_isError ? "alert-danger" : "alert-success") mt-3">@_result</div>
+}
+
+@code {
+    private int _productId = 1;
+    private int _quantity = 1;
+    private string _customer = "Bob";
+    private string? _result;
+    private bool _isError;
+
+    private async Task RunSafeCheckout()
+    {
+        // SafeCheckoutAsync returns a Result — even a declined payment or a mid-transaction
+        // failure rolls back and returns a handled result, so there is no try/catch here.
+        var result = await Checkout.SafeCheckoutAsync(_productId, _quantity, _customer);
+        _isError = !result.IsSuccess;
+        _result = result.IsSuccess ? result.Value : result.FirstError?.Message;
+    }
+}

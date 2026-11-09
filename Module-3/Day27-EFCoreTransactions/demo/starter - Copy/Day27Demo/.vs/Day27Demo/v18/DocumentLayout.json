@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 03\\Day 27\\demo\\starter - Copy\\Day27Demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{582ED1EE-E267-4B81-9C48-BDD8CE56E029}|Day27Demo.csproj|c:\\users\\jkarpiak.nait\\onedrive - nait\\documents\\courses\\2026\\fall\\sdev2351\\general\\lessons\\module 03\\day 27\\demo\\starter - copy\\day27demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{582ED1EE-E267-4B81-9C48-BDD8CE56E029}|Day27Demo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{582ED1EE-E267-4B81-9C48-BDD8CE56E029}|Day27Demo.csproj|c:\\users\\jkarpiak.nait\\onedrive - nait\\documents\\courses\\2026\\fall\\sdev2351\\general\\lessons\\module 03\\day 27\\demo\\starter - copy\\day27demo\\services\\checkoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{582ED1EE-E267-4B81-9C48-BDD8CE56E029}|Day27Demo.csproj|solutionrelative:services\\checkoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CheckoutService.cs",
+              "DocumentMoniker": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 03\\Day 27\\demo\\starter - Copy\\Day27Demo\\Services\\CheckoutService.cs",
+              "RelativeDocumentMoniker": "Services\\CheckoutService.cs",
+              "ToolTip": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 03\\Day 27\\demo\\starter - Copy\\Day27Demo\\Services\\CheckoutService.cs",
+              "RelativeToolTip": "Services\\CheckoutService.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAiwGcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T20:44:57.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 03\\Day 27\\demo\\starter - Copy\\Day27Demo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\jkarpiak.NAIT\\OneDrive - NAIT\\Documents\\Courses\\2026\\Fall\\SDEV2351\\General\\Lessons\\Module 03\\Day 27\\demo\\starter - Copy\\Day27Demo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T17:21:35.038Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
