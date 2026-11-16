@@ -1,0 +1,91 @@
+@page "/checkout"
+@using BYSResults
+@using Day29Practice.Models
+@using Day29Practice.Services
+@inject CheckoutService CheckoutSvc
+
+<PageTitle>Checkout</PageTitle>
+<h2>BYSResult Checkout</h2>
+
+<h3>Single Item Checkout (Exercises 1 &amp; 3)</h3>
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<div class="mb-3">
+    <label>Quantity: <input type="number" @bind="_quantity" /></label>
+</div>
+<div class="mb-3">
+    <label>Customer: <input type="text" @bind="_customer" /></label>
+</div>
+
+<button class="btn btn-primary" @onclick="RunResultCheckout">Checkout (Practice 1)</button>
+
+@if (_result is not null)
+{
+    @if (_result.IsSuccess)
+    {
+        var order = _result.Value!;
+        <div class="alert alert-success mt-3">
+            Order #@order.Id created for @order.CustomerName!
+            Total: @order.Total.ToString("C")
+        </div>
+    }
+    else
+    {
+        @foreach (var error in _result.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+}
+
+<hr class="my-4" />
+
+<h3>Multi-Item Checkout (Practice 2)</h3>
+<p>Tests MultiStepCheckoutAsync with 3 items: Product 1 (qty 2), Product 2 (qty 1), Product 99 (qty 5 — does not exist).</p>
+<button class="btn btn-warning" @onclick="RunMultiCheckout">Multi-Checkout (Practice 2)</button>
+
+@if (_multiResult is not null)
+{
+    @if (_multiResult.IsSuccess)
+    {
+        <div class="alert alert-success mt-3">
+            @foreach (var order in _multiResult.Value!)
+            {
+                <p>Order #@order.Id — @order.CustomerName — @order.Total.ToString("C")</p>
+            }
+        </div>
+    }
+    else
+    {
+        @foreach (var error in _multiResult.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+}
+
+@code {
+    private int _productId = 1;
+    private int _quantity = 1;
+    private string _customer = "Bob";
+    private Result<Order>? _result;
+    private Result<List<Order>>? _multiResult;
+
+    private async Task RunResultCheckout()
+    {
+        _multiResult = null;
+        _result = await CheckoutSvc.ResultCheckoutAsync(_productId, _quantity, _customer);
+    }
+
+    private async Task RunMultiCheckout()
+    {
+        _result = null;
+        var items = new List<(int, int)> { (1, 2), (2, 1), (99, 5) };
+        _multiResult = await CheckoutSvc.MultiStepCheckoutAsync(items, _customer);
+    }
+}

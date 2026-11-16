@@ -1,0 +1,68 @@
+@page "/checkout"
+@using BYSResults
+@using Day29Demo.Models
+@using Day29Demo.Services
+@inject ICheckoutService CheckoutSvc
+
+<PageTitle>Checkout</PageTitle>
+<h2>Result-Wrapped Checkout</h2>
+<p>BYSResult + the Day-27 transaction boundary — instructor codes the service live during Exploring demo.</p>
+
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<div class="mb-3">
+    <label>Quantity: <input type="number" @bind="_quantity" /></label>
+</div>
+<div class="mb-3">
+    <label>Customer: <input type="text" @bind="_customer" /></label>
+</div>
+
+<button class="btn btn-primary" @onclick="RunCheckout">Checkout (Result)</button>
+<button class="btn btn-secondary ms-2" @onclick="RunStringCheckout">Checkout (Bare String)</button>
+
+@if (_result is not null)
+{
+    @if (_result.IsSuccess)
+    {
+        var order = _result.Value!;
+        <div class="alert alert-success mt-3">
+            Order #@order.Id created for @order.CustomerName!
+            Total: @order.Total.ToString("C")
+        </div>
+    }
+    else
+    {
+        @foreach (var error in _result.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+}
+
+@if (!string.IsNullOrEmpty(_stringResult))
+{
+    <div class="alert alert-info mt-3">String result: @_stringResult</div>
+}
+
+@code {
+    private int _productId = 1;
+    private int _quantity = 1;
+    private string _customer = "Bob";
+    private Result<Order>? _result;
+    private string? _stringResult;
+
+    private async Task RunCheckout()
+    {
+        _stringResult = null;
+        _result = await CheckoutSvc.ResultCheckoutAsync(_productId, _quantity, _customer);
+    }
+
+    private async Task RunStringCheckout()
+    {
+        _result = null;
+        _stringResult = await CheckoutSvc.StringCheckoutAsync(_productId, _quantity, _customer);
+    }
+}

@@ -1,0 +1,74 @@
+@page "/product-update"
+@using BYSResults
+@using Day29Demo.Models
+@using Day29Demo.Services
+@inject ICheckoutService CheckoutSvc
+
+<PageTitle>Product Update</PageTitle>
+<h2>Tier 2 — Errors Only the Database Can Report</h2>
+
+<p>
+    Tier 1 validation catches what the arguments alone can tell you. This page is about the next
+    tier: <strong>an invalid product ID</strong>. Nothing in the arguments says whether product
+    9999 exists — only the database knows. Run the same update both ways and compare the message
+    the user ends up with.
+</p>
+
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<div class="mb-3">
+    <label>New Price: <input type="number" step="0.01" @bind="_newPrice" /></label>
+</div>
+
+<button class="btn btn-primary" @onclick="RunChecked">Update (with Tier-2 check)</button>
+<button class="btn btn-outline-danger ms-2" @onclick="RunUnchecked">Update (NO check — the foil)</button>
+
+<p class="text-muted mt-2">
+    <small>Try <code>1</code> (valid) then <code>9999</code> (invalid) through both buttons.</small>
+</p>
+
+@* Same typed-Result consumption as Checkout.razor: branch on IsSuccess, then read .Value or
+   loop .Errors reading each .Code (category) and .Message. The interesting part today is not
+   the markup — it is that the two buttons produce DIFFERENT categories for the same underlying
+   database failure, because only one of them asked the question before writing. *@
+@if (_result is not null)
+{
+    @if (_result.IsSuccess)
+    {
+        var product = _result.Value!;
+        <div class="alert alert-success mt-3">
+            Product #@product.Id price updated to @product.Price.ToString("C").
+        </div>
+    }
+    else
+    {
+        @foreach (var error in _result.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+
+    <p class="mt-2"><small class="text-muted">Ran: <code>@_lastCall</code></small></p>
+}
+
+@code {
+    private int _productId = 1;
+    private decimal _newPrice = 899.99m;
+    private Result<Product>? _result;
+    private string? _lastCall;
+
+    private async Task RunChecked()
+    {
+        _lastCall = "ResultUpdatePriceAsync";
+        _result = await CheckoutSvc.ResultUpdatePriceAsync(_productId, _newPrice);
+    }
+
+    private async Task RunUnchecked()
+    {
+        _lastCall = "UncheckedUpdatePriceAsync";
+        _result = await CheckoutSvc.UncheckedUpdatePriceAsync(_productId, _newPrice);
+    }
+}
