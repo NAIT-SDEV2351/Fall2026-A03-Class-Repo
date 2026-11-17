@@ -1,0 +1,131 @@
+@page "/order"
+@using BYSResults
+@using Day30Practice.Models
+@using Day30Practice.Services
+@inject IOrderService OrderSvc
+
+<h1>Order</h1>
+<p class="text-muted">
+    One method saves this whole screen — the order and every line — in a single round trip.
+</p>
+
+@* ── Load bar — PRE-BUILT ──────────────────────────────────────────────────── *@
+<div class="row g-2 align-items-end mb-4">
+    <div class="col-auto">
+        <label class="form-label mb-0">Order # to load</label>
+        <input class="form-control" type="number" @bind="_loadId" />
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary" @onclick="LoadAsync">Load</button>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary" @onclick="NewOrder">New order</button>
+    </div>
+    <div class="col-auto ms-3">
+        <span class="badge bg-dark">
+            Editing: @(_view.Id == 0 ? "NEW" : $"Order #{_view.Id}")
+        </span>
+    </div>
+</div>
+
+@* ── Parent — PRE-BUILT ────────────────────────────────────────────────────── *@
+<div class="mb-3" style="max-width: 32rem;">
+    <label class="form-label">Customer name</label>
+    <input class="form-control" @bind="_view.CustomerName" />
+</div>
+
+@* ── Children — PRE-BUILT ──────────────────────────────────────────────────── *@
+<table class="table align-middle">
+    <thead>
+        <tr>
+            <th style="width: 40%;">Product</th>
+            <th style="width: 15%;">Qty</th>
+            <th style="width: 20%;">Unit price</th>
+            <th style="width: 15%;">Removed</th>
+            <th style="width: 10%;">Line #</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in _view.Lines)
+        {
+            <tr class="@(line.IsRemoved ? "table-secondary text-muted" : null)">
+                <td>
+                    <select class="form-select" @bind="line.ProductId">
+                        <option value="0">-- choose a product --</option>
+                        @foreach (var product in _products)
+                        {
+                            <option value="@product.Id">@product.Name</option>
+                        }
+                    </select>
+                </td>
+                <td><input class="form-control" type="number" @bind="line.Quantity" /></td>
+                <td><input class="form-control" type="number" step="0.01" @bind="line.UnitPrice" /></td>
+                <td class="text-center">
+                    <input class="form-check-input" type="checkbox" @bind="line.IsRemoved" />
+                </td>
+                <td class="text-muted">@(line.Id == 0 ? "new" : line.Id.ToString())</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mb-4">
+    <button class="btn btn-outline-primary btn-sm" @onclick="AddLine">Add line</button>
+    <button class="btn btn-primary ms-2" @onclick="SaveAsync">Save order</button>
+    <span class="ms-3">Stored total: <strong>@_view.Total.ToString("C")</strong></span>
+</div>
+
+@* PRE-BUILT placeholder, so Practices 1 and 2 are testable before you build the real
+   display in Practice 3. It proves the call came back; it tells you nothing about WHY
+   a save failed. Practice 3 REPLACES this line. *@
+@if (_result is not null)
+{
+    <p class="fst-italic text-muted">
+        Save returned: @(_result.IsSuccess ? "success" : $"{_result.Errors.Count} error(s)")
+    </p>
+}
+
+@code {
+    private OrderView _view = new();
+    private List<Product> _products = [];
+    private Result<OrderView>? _result;
+    private int _loadId = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _products = await OrderSvc.GetProductsAsync();
+        NewOrder();
+    }
+
+    private void NewOrder()
+    {
+        _view = new OrderView();
+        _view.Lines.Add(new OrderLineView());
+        _result = null;
+    }
+
+    private async Task LoadAsync()
+    {
+        var loaded = await OrderSvc.GetOrderAsync(_loadId);
+        if (loaded.IsSuccess)
+        {
+            _view = loaded.Value!;
+            _result = null;
+        }
+        else
+        {
+            _result = loaded;
+        }
+    }
+
+    private void AddLine() => _view.Lines.Add(new OrderLineView());
+
+    private async Task SaveAsync()
+    {
+        _result = await OrderSvc.AddEditOrderAsync(_view);
+        if (_result.IsSuccess)
+        {
+            _view = _result.Value!;
+        }
+    }
+}
