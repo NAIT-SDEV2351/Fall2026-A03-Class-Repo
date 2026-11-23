@@ -1,0 +1,39 @@
+@page "/concurrency-test"
+@using BYSResults
+@using Day32Practice.Services
+@inject ProductService ProductSvc
+
+<PageTitle>Concurrency Test</PageTitle>
+<h2>Practice 2: Concurrency Conflict Simulation</h2>
+
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<button class="btn btn-danger" @onclick="RunSimulation">Simulate Conflict</button>
+
+@if (_result is not null)
+{
+    @if (_result.IsSuccess)
+    {
+        <div class="alert alert-info mt-3">@_result.Value</div>
+    }
+    else
+    {
+        @foreach (var error in _result.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+}
+
+@code {
+    private int _productId = 1;
+    private Result<string>? _result;
+
+    private async Task RunSimulation()
+    {
+        _result = await ProductSvc.SimulateConflictAsync(_productId);
+    }
+}

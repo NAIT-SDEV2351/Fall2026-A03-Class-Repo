@@ -1,0 +1,49 @@
+@page "/conflict-resolution"
+@using BYSResults
+@using Day32Practice.Models
+@using Day32Practice.Services
+@inject ProductService ProductSvc
+
+<PageTitle>Conflict Resolution</PageTitle>
+<h2>Optional take-home (Day 34): Conflict Resolution</h2>
+
+<div class="mb-3">
+    <label>Product ID: <input type="number" @bind="_productId" /></label>
+</div>
+<div class="mb-3">
+    <label>New Price: <input type="number" step="0.01" @bind="_newPrice" /></label>
+</div>
+
+<button class="btn btn-primary me-2" @onclick='() => Update("database-wins")'>Database Wins</button>
+<button class="btn btn-success me-2" @onclick='() => Update("client-wins")'>Client Wins</button>
+<button class="btn btn-warning" @onclick='() => Update("report")'>Report Conflict</button>
+
+@if (_result is not null)
+{
+    @if (_result.IsSuccess)
+    {
+        <div class="alert alert-success mt-3">
+            Updated: @_result.Value!.Name — @_result.Value!.Price.ToString("C")
+        </div>
+    }
+    else
+    {
+        @foreach (var error in _result.Errors)
+        {
+            <div class="alert alert-danger mt-2">
+                <strong>@error.Code:</strong> @error.Message
+            </div>
+        }
+    }
+}
+
+@code {
+    private int _productId = 1;
+    private decimal _newPrice = 1099.99m;
+    private Result<Product>? _result;
+
+    private async Task Update(string strategy)
+    {
+        _result = await ProductSvc.UpdateWithResolutionAsync(_productId, _newPrice, strategy);
+    }
+}
