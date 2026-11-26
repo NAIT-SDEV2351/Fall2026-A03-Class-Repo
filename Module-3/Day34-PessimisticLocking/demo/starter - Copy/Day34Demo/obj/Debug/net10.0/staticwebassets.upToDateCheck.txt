@@ -1,6 +1,0 @@
-wwwroot\app.css
-C:\Users\jkarpiak.NAIT\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\build\..\_framework\blazor.web.js
-C:\Users\jkarpiak.NAIT\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\build\..\_framework\blazor.server.js
-C:\Users\jkarpiak.NAIT\OneDrive - NAIT\Documents\Courses\2026\Fall\SDEV2351\General\Lessons\Module 03\Day 34\demo\starter - Copy\Day34Demo\wwwroot\app.css
-C:\Users\jkarpiak.NAIT\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\_framework\blazor.web.js
-C:\Users\jkarpiak.NAIT\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\_framework\blazor.server.js
